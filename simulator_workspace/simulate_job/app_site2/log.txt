@@ -1,0 +1,54 @@
+2024-04-26 14:41:45,481 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-04-26 14:41:45,549 - CoreCell - INFO - site2.simulate_job: created backbone external connector to tcp://localhost:41483
+2024-04-26 14:41:45,549 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:41483] is starting
+2024-04-26 14:41:45,550 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:60450 => 127.0.0.1:41483] is created: PID: 439
+2024-04-26 14:41:48,791 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-04-26 14:41:49,297 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-04-26 14:41:49,303 - ClientRunner - INFO - [identity=site2, run=simulate_job]: synced to Server Runner in 0.5073144435882568 seconds
+2024-04-26 14:41:49,304 - ClientRunner - INFO - [identity=site2, run=simulate_job]: client runner started
+2024-04-26 14:41:49,304 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site2
+2024-04-26 14:41:49,308 - Communicator - INFO - Received from simulator_server server. getTask: get_local_average_and_count size: 513B (513 Bytes) time: 0.003960 seconds
+2024-04-26 14:41:49,308 - FederatedClient - INFO - pull_task completed. Task name:get_local_average_and_count Status:True 
+2024-04-26 14:41:49,308 - ClientRunner - INFO - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=get_local_average_and_count, id=5c18c9e0-33d6-4699-8920-4b332abcf59f
+2024-04-26 14:41:49,309 - ClientRunner - INFO - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: invoking task executor AverageExecutor
+2024-04-26 14:41:49,309 - ClientRunner - ERROR - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: Processing error from executor AverageExecutor: FileNotFoundError: Results directory path could not be determined.
+2024-04-26 14:41:49,310 - ClientRunner - ERROR - Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/nvflare/private/fed/client/client_runner.py", line 301, in _do_process_task
+    reply = executor.execute(task.name, task.data, fl_ctx, abort_signal)
+  File "/workspace/app/code/executor/average_executor.py", line 27, in execute
+    save_results_to_file(
+  File "/workspace/app/code/executor/average_executor.py", line 49, in save_results_to_file
+    results_dir = get_results_dir_path(fl_ctx)
+  File "/workspace/app/code/executor/average_executor.py", line 93, in get_results_dir_path
+    raise FileNotFoundError(
+FileNotFoundError: Results directory path could not be determined.
+
+2024-04-26 14:41:49,310 - ClientRunner - INFO - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: try #1: sending task result to server
+2024-04-26 14:41:49,310 - ClientRunner - INFO - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: checking task ...
+2024-04-26 14:41:49,311 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-04-26 14:41:49,314 - ClientRunner - INFO - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: start to send task result to server
+2024-04-26 14:41:49,314 - FederatedClient - INFO - Starting to push execute result.
+2024-04-26 14:41:49,317 - Communicator - INFO -  SubmitUpdate size: 565B (565 Bytes). time: 0.003029 seconds
+2024-04-26 14:41:49,317 - ClientRunner - INFO - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: task result sent to server
+2024-04-26 14:41:49,318 - ClientTaskWorker - INFO - Finished one task run for client: site2 interval: 2 task_processed: True
+2024-04-26 14:41:49,318 - ClientTaskWorker - INFO - Clean up ClientRunner for : site2 
+2024-04-26 14:41:49,320 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 439
+2024-04-26 14:41:57,631 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-04-26 14:41:57,704 - CoreCell - INFO - site2.simulate_job: created backbone external connector to tcp://localhost:41483
+2024-04-26 14:41:57,704 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:41483] is starting
+2024-04-26 14:41:57,705 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:37662 => 127.0.0.1:41483] is created: PID: 504
+2024-04-26 14:42:00,913 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-04-26 14:42:01,420 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-04-26 14:42:01,425 - ClientRunner - INFO - [identity=site2, run=simulate_job]: synced to Server Runner in 0.5062689781188965 seconds
+2024-04-26 14:42:01,426 - ClientRunner - INFO - [identity=site2, run=simulate_job]: client runner started
+2024-04-26 14:42:01,426 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site2
+2024-04-26 14:42:01,426 - ClientRunner - INFO - [identity=site2, run=simulate_job]: started end-run events sequence
+2024-04-26 14:42:01,427 - ClientRunner - INFO - [identity=site2, run=simulate_job]: ABOUT_TO_END_RUN fired
+2024-04-26 14:42:01,427 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-04-26 14:42:01,928 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-04-26 14:42:02,429 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-04-26 14:42:02,930 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-04-26 14:42:02,930 - ClientRunner - INFO - [identity=site2, run=simulate_job]: END_RUN fired
+2024-04-26 14:42:02,931 - ClientTaskWorker - INFO - Simulator END_RUN sequence.
+2024-04-26 14:42:02,975 - ClientTaskWorker - INFO - Clean up ClientRunner for : site2 
+2024-04-26 14:42:02,980 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 504

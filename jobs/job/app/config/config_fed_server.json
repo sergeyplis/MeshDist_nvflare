@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "server": {
+    "heart_beat_timeout": 600
+  },
+  "task_data_filters": [],
+  "task_result_filters": [],
+  "components": [
+    {
+      "id": "gradient_aggregator",
+      "path": "aggregator.gradient_aggregator.GradientAggregator",
+      "args": {}
+    }
+  ],
+  "workflows": [
+    {
+      "id": "gradient_aggregation_workflow",
+      "path": "workflow.gradient_aggregation_workflow.GradientAggregationWorkflow",
+      "args": {
+        "aggregator_id": "gradient_aggregator"
+      }
+    }
+  ]
+}

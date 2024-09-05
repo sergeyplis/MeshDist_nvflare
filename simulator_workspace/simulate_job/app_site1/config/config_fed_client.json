@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "executors": [
+    {
+      "tasks": [
+        "get_local_average_and_count",
+        "accept_global_average"
+      ],
+      "executor": {
+        "path": "executor.average_executor.AverageExecutor",
+        "args": {}
+      }
+    }
+  ],
+  "task_result_filters": [],
+  "task_data_filters": [],
+  "components": []
+}
