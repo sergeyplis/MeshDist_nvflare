@@ -1,0 +1,101 @@
+2024-09-12 12:35:20,076 - SimulatorRunner - INFO - Create the Simulator Server.
+2024-09-12 12:35:20,077 - CoreCell - INFO - server: creating listener on tcp://0:42995
+2024-09-12 12:35:20,102 - CoreCell - INFO - server: created backbone external listener for tcp://0:42995
+2024-09-12 12:35:20,102 - ConnectorManager - INFO - 3734: Try start_listener Listener resources: {'secure': False, 'host': 'localhost'}
+2024-09-12 12:35:20,103 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00002 PASSIVE tcp://0:58567] is starting
+2024-09-12 12:35:20,604 - CoreCell - INFO - server: created backbone internal listener for tcp://localhost:58567
+2024-09-12 12:35:20,605 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 PASSIVE tcp://0:42995] is starting
+2024-09-12 12:35:20,712 - nvflare.fuel.hci.server.hci - INFO - Starting Admin Server localhost on Port 33953
+2024-09-12 12:35:20,712 - SimulatorRunner - INFO - Deploy the Apps.
+2024-09-12 12:35:20,717 - SimulatorRunner - INFO - Create the simulate clients.
+2024-09-12 12:35:20,722 - ClientManager - INFO - Client: New client site-1@192.168.0.105 joined. Sent token: 18c46c7a-72c9-4ada-80be-8122d4d307ba.  Total clients: 1
+2024-09-12 12:35:20,722 - FederatedClient - INFO - Successfully registered client:site-1 for project simulator_server. Token:18c46c7a-72c9-4ada-80be-8122d4d307ba SSID:
+2024-09-12 12:35:20,723 - ClientManager - INFO - Client: New client site-2@192.168.0.105 joined. Sent token: 56f5b3df-d7bb-45fb-9f6e-4567fa6b81a3.  Total clients: 2
+2024-09-12 12:35:20,724 - FederatedClient - INFO - Successfully registered client:site-2 for project simulator_server. Token:56f5b3df-d7bb-45fb-9f6e-4567fa6b81a3 SSID:
+2024-09-12 12:35:20,724 - SimulatorRunner - INFO - Set the client status ready.
+2024-09-12 12:35:20,724 - SimulatorRunner - INFO - Deploy and start the Server App.
+2024-09-12 12:35:20,725 - Cell - INFO - Register blob CB for channel='server_command', topic='*'
+2024-09-12 12:35:20,725 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-12 12:35:20,725 - ServerCommandAgent - INFO - ServerCommandAgent cell register_request_cb: server.simulate_job
+2024-09-12 12:35:20,732 - JsonScanner - ERROR - Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 36, in get_class
+    class_ = getattr(module_, class_name)
+AttributeError: module 'nvflare.app_common.aggregators.accumulate_model_aggregator' has no attribute 'AccumulateModelAggregator'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 99, in _do_scan
+    node.processor.process_element(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 150, in process_element
+    self.process_config_element(self.config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/server/server_json_config.py", line 108, in process_config_element
+    FedJsonConfigurator.process_config_element(self, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed_json_config.py", line 91, in process_config_element
+    c = self.authorize_and_build_component(element, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 103, in authorize_and_build_component
+    return self.build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/server/server_json_config.py", line 166, in build_component
+    t = super().build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/component_builder.py", line 86, in build_component
+    return instantiate_class(class_path, class_args)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 54, in instantiate_class
+    c = get_class(class_path)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 38, in get_class
+    raise ValueError("Class {} does not exist".format(class_path))
+ValueError: Class nvflare.app_common.aggregators.accumulate_model_aggregator.AccumulateModelAggregator does not exist
+
+2024-09-12 12:35:20,732 - SimulatorRunner - ERROR - FL server execution exception: ConfigError: Error processing '/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/simulator_workspace/server/simulate_job/app_server/config/config_fed_server.json' in element '{"id": "gradient_aggregator", "path": "nvflare.app_common.aggregators.accumulate_model_aggregator.AccumulateModelAggregator", "args": {}}': path: 'components.#1', exception: 'ValueError: Class nvflare.app_common.aggregators.accumulate_model_aggregator.AccumulateModelAggregator does not exist'
+Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 36, in get_class
+    class_ = getattr(module_, class_name)
+AttributeError: module 'nvflare.app_common.aggregators.accumulate_model_aggregator' has no attribute 'AccumulateModelAggregator'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 99, in _do_scan
+    node.processor.process_element(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 150, in process_element
+    self.process_config_element(self.config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/server/server_json_config.py", line 108, in process_config_element
+    FedJsonConfigurator.process_config_element(self, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed_json_config.py", line 91, in process_config_element
+    c = self.authorize_and_build_component(element, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 103, in authorize_and_build_component
+    return self.build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/server/server_json_config.py", line 166, in build_component
+    t = super().build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/component_builder.py", line 86, in build_component
+    return instantiate_class(class_path, class_args)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 54, in instantiate_class
+    c = get_class(class_path)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 38, in get_class
+    raise ValueError("Class {} does not exist".format(class_path))
+ValueError: Class nvflare.app_common.aggregators.accumulate_model_aggregator.AccumulateModelAggregator does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/server/server_app_runner.py", line 76, in start_server_app
+    conf.configure()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 147, in configure
+    raise e
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 144, in configure
+    self._do_configure()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 137, in _do_configure
+    self.json_scanner.scan(self)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 159, in scan
+    self._do_scan(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 129, in _do_scan
+    self._do_scan(_child_node(node, k, 0, v))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 132, in _do_scan
+    self._do_scan(_child_node(node, node.key, i + 1, element[i]))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 121, in _do_scan
+    raise ConfigError(self.get_process_err_msg(e, elmt_str, location, node))
+nvflare.fuel.common.excepts.ConfigError: Error processing '/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/simulator_workspace/server/simulate_job/app_server/config/config_fed_server.json' in element '{"id": "gradient_aggregator", "path": "nvflare.app_common.aggregators.accumulate_model_aggregator.AccumulateModelAggregator", "args": {}}': path: 'components.#1', exception: 'ValueError: Class nvflare.app_common.aggregators.accumulate_model_aggregator.AccumulateModelAggregator does not exist'
+2024-09-12 12:35:20,733 - SimulatorServer - INFO - Server app stopped.
+
+
+2024-09-12 12:35:21,725 - SimulatorRunner - ERROR - Simulator run error: RuntimeError: Could not start the Server App.
+2024-09-12 12:35:25,612 - MPM - INFO - MPM: Good Bye!

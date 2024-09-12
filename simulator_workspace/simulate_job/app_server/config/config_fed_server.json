@@ -7,18 +7,17 @@
   "task_result_filters": [],
   "components": [
     {
-      "id": "aggregator",
-      "path": "aggregator.average_aggregator.AverageAggregator",
-      "args": {
-      }
+      "id": "gradient_aggregator",
+      "path": "app.code.aggregator.gradient_aggregator.GradientAggregator",
+      "args": {}
     }
   ],
   "workflows": [
     {
-      "id": "average_workflow",
-      "path": "workflow.average_workflow.AverageWorkflow",
+      "id": "gradient_aggregation_workflow",
+      "path": "workflow.gradient_aggregation_workflow.GradientAggregationWorkflow",
       "args": {
-        "aggregator_id": "aggregator"
+        "aggregator_id": "gradient_aggregator"
       }
     }
   ]

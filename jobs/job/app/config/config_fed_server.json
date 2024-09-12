@@ -8,7 +8,7 @@
   "components": [
     {
       "id": "gradient_aggregator",
-      "path": "aggregator.gradient_aggregator.GradientAggregator",
+      "path": "app.code.aggregator.gradient_aggregator.GradientAggregator",
       "args": {}
     }
   ],

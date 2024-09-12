@@ -8,7 +8,7 @@
   "components": [
     {
       "id": "gradient_aggregator",
-      "path": "app.code.aggregator.gradient_aggregator.GradientAggregator",
+      "path": "nvflare.app_common.aggregators.accumulate_model_aggregator.AccumulateModelAggregator",
       "args": {}
     }
   ],

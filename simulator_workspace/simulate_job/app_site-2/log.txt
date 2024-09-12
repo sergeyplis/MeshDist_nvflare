@@ -1,0 +1,152 @@
+2024-09-12 13:53:49,902 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-12 13:53:50,031 - CoreCell - INFO - site-2.simulate_job: created backbone external connector to tcp://localhost:34087
+2024-09-12 13:53:50,032 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:34087] is starting
+2024-09-12 13:53:50,033 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:37422 => 127.0.0.1:34087] is created: PID: 17182
+2024-09-12 13:54:03,982 - JsonScanner - ERROR - Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 99, in _do_scan
+    node.processor.process_element(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 150, in process_element
+    self.process_config_element(self.config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 118, in process_config_element
+    self.current_exe.executor = self.authorize_and_build_component(element, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 103, in authorize_and_build_component
+    return self.build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 122, in build_component
+    t = super().build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/component_builder.py", line 86, in build_component
+    return instantiate_class(class_path, class_args)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 56, in instantiate_class
+    instance = c()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 27, in __init__
+    self.data_loader = Scanloader(db_file='mindboggle.db', label_type='GWlabels', num_cubes=1)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/loader.py", line 13, in __init__
+    self.cursor.execute(self.query)
+sqlite3.OperationalError: no such table: mindboggle101
+
+2024-09-12 13:54:03,983 - ClientTaskWorker - ERROR - do_one_task execute exception: ConfigError: Error processing '/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/simulator_workspace/simulate_job/app_site-2/config/config_fed_client.json' in element '{"path": "executor.meshnet_executor.MeshNetExecutor", "args": {}}': path: 'executors.#1.executor', exception: 'OperationalError: no such table: mindboggle101'
+2024-09-12 13:54:03,983 - root - ERROR - Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 99, in _do_scan
+    node.processor.process_element(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 150, in process_element
+    self.process_config_element(self.config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 118, in process_config_element
+    self.current_exe.executor = self.authorize_and_build_component(element, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 103, in authorize_and_build_component
+    return self.build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 122, in build_component
+    t = super().build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/component_builder.py", line 86, in build_component
+    return instantiate_class(class_path, class_args)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 56, in instantiate_class
+    instance = c()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 27, in __init__
+    self.data_loader = Scanloader(db_file='mindboggle.db', label_type='GWlabels', num_cubes=1)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/loader.py", line 13, in __init__
+    self.cursor.execute(self.query)
+sqlite3.OperationalError: no such table: mindboggle101
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/app/simulator/simulator_worker.py", line 86, in do_one_task
+    self.create_client_runner(client)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/app/simulator/simulator_worker.py", line 69, in create_client_runner
+    client_app_runner.client_runner = client_app_runner.create_client_runner(
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_app_runner.py", line 93, in create_client_runner
+    conf.configure()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 147, in configure
+    raise e
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 144, in configure
+    self._do_configure()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 137, in _do_configure
+    self.json_scanner.scan(self)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 159, in scan
+    self._do_scan(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 129, in _do_scan
+    self._do_scan(_child_node(node, k, 0, v))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 132, in _do_scan
+    self._do_scan(_child_node(node, node.key, i + 1, element[i]))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 129, in _do_scan
+    self._do_scan(_child_node(node, k, 0, v))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 121, in _do_scan
+    raise ConfigError(self.get_process_err_msg(e, elmt_str, location, node))
+nvflare.fuel.common.excepts.ConfigError: Error processing '/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/simulator_workspace/simulate_job/app_site-2/config/config_fed_client.json' in element '{"path": "executor.meshnet_executor.MeshNetExecutor", "args": {}}': path: 'executors.#1.executor', exception: 'OperationalError: no such table: mindboggle101'
+
+2024-09-12 13:54:04,026 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-2 
+2024-09-12 13:54:04,029 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 17182
+2024-09-12 13:54:17,405 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-12 13:54:17,471 - CoreCell - INFO - site-2.simulate_job: created backbone external connector to tcp://localhost:34087
+2024-09-12 13:54:17,471 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:34087] is starting
+2024-09-12 13:54:17,472 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:55024 => 127.0.0.1:34087] is created: PID: 17455
+2024-09-12 13:54:20,802 - JsonScanner - ERROR - Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 99, in _do_scan
+    node.processor.process_element(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 150, in process_element
+    self.process_config_element(self.config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 118, in process_config_element
+    self.current_exe.executor = self.authorize_and_build_component(element, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 103, in authorize_and_build_component
+    return self.build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 122, in build_component
+    t = super().build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/component_builder.py", line 86, in build_component
+    return instantiate_class(class_path, class_args)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 56, in instantiate_class
+    instance = c()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 27, in __init__
+    self.data_loader = Scanloader(db_file='mindboggle.db', label_type='GWlabels', num_cubes=1)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/loader.py", line 13, in __init__
+    self.cursor.execute(self.query)
+sqlite3.OperationalError: no such table: mindboggle101
+
+2024-09-12 13:54:20,802 - ClientTaskWorker - ERROR - do_one_task execute exception: ConfigError: Error processing '/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/simulator_workspace/simulate_job/app_site-2/config/config_fed_client.json' in element '{"path": "executor.meshnet_executor.MeshNetExecutor", "args": {}}': path: 'executors.#1.executor', exception: 'OperationalError: no such table: mindboggle101'
+2024-09-12 13:54:20,803 - root - ERROR - Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 99, in _do_scan
+    node.processor.process_element(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 150, in process_element
+    self.process_config_element(self.config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 118, in process_config_element
+    self.current_exe.executor = self.authorize_and_build_component(element, config_ctx, node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 103, in authorize_and_build_component
+    return self.build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_json_config.py", line 122, in build_component
+    t = super().build_component(config_dict)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/component_builder.py", line 86, in build_component
+    return instantiate_class(class_path, class_args)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/class_utils.py", line 56, in instantiate_class
+    instance = c()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 27, in __init__
+    self.data_loader = Scanloader(db_file='mindboggle.db', label_type='GWlabels', num_cubes=1)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/loader.py", line 13, in __init__
+    self.cursor.execute(self.query)
+sqlite3.OperationalError: no such table: mindboggle101
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/app/simulator/simulator_worker.py", line 86, in do_one_task
+    self.create_client_runner(client)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/app/simulator/simulator_worker.py", line 69, in create_client_runner
+    client_app_runner.client_runner = client_app_runner.create_client_runner(
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_app_runner.py", line 93, in create_client_runner
+    conf.configure()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 147, in configure
+    raise e
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 144, in configure
+    self._do_configure()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/json_configer.py", line 137, in _do_configure
+    self.json_scanner.scan(self)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 159, in scan
+    self._do_scan(node)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 129, in _do_scan
+    self._do_scan(_child_node(node, k, 0, v))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 132, in _do_scan
+    self._do_scan(_child_node(node, node.key, i + 1, element[i]))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 129, in _do_scan
+    self._do_scan(_child_node(node, k, 0, v))
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/fuel/utils/json_scanner.py", line 121, in _do_scan
+    raise ConfigError(self.get_process_err_msg(e, elmt_str, location, node))
+nvflare.fuel.common.excepts.ConfigError: Error processing '/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/simulator_workspace/simulate_job/app_site-2/config/config_fed_client.json' in element '{"path": "executor.meshnet_executor.MeshNetExecutor", "args": {}}': path: 'executors.#1.executor', exception: 'OperationalError: no such table: mindboggle101'
+
+2024-09-12 13:54:20,846 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-2 
+2024-09-12 13:54:20,848 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 17455

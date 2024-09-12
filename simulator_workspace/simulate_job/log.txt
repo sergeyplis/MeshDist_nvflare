@@ -1,87 +1,67 @@
-2024-04-26 14:41:30,287 - SimulatorRunner - WARNING - The number of threads is not provided. Set it to default: 1
-2024-04-26 14:41:30,288 - SimulatorRunner - INFO - Create the Simulator Server.
-2024-04-26 14:41:30,290 - CoreCell - INFO - server: creating listener on tcp://0:41483
-2024-04-26 14:41:30,326 - CoreCell - INFO - server: created backbone external listener for tcp://0:41483
-2024-04-26 14:41:30,326 - ConnectorManager - INFO - 376: Try start_listener Listener resources: {'secure': False, 'host': 'localhost'}
-2024-04-26 14:41:30,327 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00002 PASSIVE tcp://0:14892] is starting
-2024-04-26 14:41:30,828 - CoreCell - INFO - server: created backbone internal listener for tcp://localhost:14892
-2024-04-26 14:41:30,828 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 PASSIVE tcp://0:41483] is starting
-2024-04-26 14:41:30,911 - nvflare.fuel.hci.server.hci - INFO - Starting Admin Server localhost on Port 47739
-2024-04-26 14:41:30,911 - SimulatorRunner - INFO - Deploy the Apps.
-2024-04-26 14:41:30,937 - SimulatorRunner - INFO - Create the simulate clients.
-2024-04-26 14:41:30,942 - ClientManager - INFO - Client: New client site1@172.17.0.20 joined. Sent token: 0afb0ceb-5b76-4ef5-80d2-1639cf4455fa.  Total clients: 1
-2024-04-26 14:41:30,942 - FederatedClient - INFO - Successfully registered client:site1 for project simulator_server. Token:0afb0ceb-5b76-4ef5-80d2-1639cf4455fa SSID:
-2024-04-26 14:41:30,943 - ClientManager - INFO - Client: New client site2@172.17.0.20 joined. Sent token: 10919f8d-bf82-4037-b1c5-745dce1bc45a.  Total clients: 2
-2024-04-26 14:41:30,944 - FederatedClient - INFO - Successfully registered client:site2 for project simulator_server. Token:10919f8d-bf82-4037-b1c5-745dce1bc45a SSID:
-2024-04-26 14:41:30,944 - SimulatorRunner - INFO - Set the client status ready.
-2024-04-26 14:41:30,944 - SimulatorRunner - INFO - Deploy and start the Server App.
-2024-04-26 14:41:30,945 - Cell - INFO - Register blob CB for channel='server_command', topic='*'
-2024-04-26 14:41:30,945 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
-2024-04-26 14:41:30,945 - ServerCommandAgent - INFO - ServerCommandAgent cell register_request_cb: server.simulate_job
-2024-04-26 14:41:35,341 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Server runner starting ...
-2024-04-26 14:41:35,342 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: starting workflow average_workflow (<class 'workflow.average_workflow.AverageWorkflow'>) ...
-2024-04-26 14:41:35,342 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: Workflow average_workflow (<class 'workflow.average_workflow.AverageWorkflow'>) started
-2024-04-26 14:41:35,342 - AverageWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: scheduled task get_local_average_and_count
-2024-04-26 14:41:36,310 - SimulatorClientRunner - INFO - Start the clients run simulation.
-2024-04-26 14:41:37,311 - SimulatorClientRunner - INFO - Simulate Run client: site1 on GPU group: None
-2024-04-26 14:41:38,421 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 127.0.0.1:41483 <= 127.0.0.1:50578] is created: PID: 376
-2024-04-26 14:41:43,439 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site1, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=c411a1f9-3274-48ad-a41b-3490da561e80]: assigned task to client site1: name=get_local_average_and_count, id=c411a1f9-3274-48ad-a41b-3490da561e80
-2024-04-26 14:41:43,439 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site1, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=c411a1f9-3274-48ad-a41b-3490da561e80]: sent task assignment to client. client_name:site1 task_id:c411a1f9-3274-48ad-a41b-3490da561e80
-2024-04-26 14:41:43,439 - GetTaskCommand - INFO - return task to client.  client_name: site1  task_name: get_local_average_and_count   task_id: c411a1f9-3274-48ad-a41b-3490da561e80  sharable_header_task_id: c411a1f9-3274-48ad-a41b-3490da561e80
-2024-04-26 14:41:43,453 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site1, peer_run=simulate_job]: got result from client site1 for task: name=get_local_average_and_count, id=c411a1f9-3274-48ad-a41b-3490da561e80
-2024-04-26 14:41:43,453 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site1, peer_run=simulate_job, peer_rc=EXECUTION_EXCEPTION, task_name=get_local_average_and_count, task_id=c411a1f9-3274-48ad-a41b-3490da561e80]: finished processing client result by average_workflow
-2024-04-26 14:41:43,454 - SubmitUpdateCommand - INFO - submit_update process. client_name:site1   task_id:c411a1f9-3274-48ad-a41b-3490da561e80
-2024-04-26 14:41:43,457 - SimulatorClientRunner - INFO - Simulate Run client: site2 on GPU group: None
-2024-04-26 14:41:43,459 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 Not Connected] is closed PID: 376
-2024-04-26 14:41:45,550 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 127.0.0.1:41483 <= 127.0.0.1:60450] is created: PID: 376
-2024-04-26 14:41:49,306 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site2, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: assigned task to client site2: name=get_local_average_and_count, id=5c18c9e0-33d6-4699-8920-4b332abcf59f
-2024-04-26 14:41:49,306 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site2, peer_run=simulate_job, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: sent task assignment to client. client_name:site2 task_id:5c18c9e0-33d6-4699-8920-4b332abcf59f
-2024-04-26 14:41:49,307 - GetTaskCommand - INFO - return task to client.  client_name: site2  task_name: get_local_average_and_count   task_id: 5c18c9e0-33d6-4699-8920-4b332abcf59f  sharable_header_task_id: 5c18c9e0-33d6-4699-8920-4b332abcf59f
-2024-04-26 14:41:49,315 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site2, peer_run=simulate_job]: got result from client site2 for task: name=get_local_average_and_count, id=5c18c9e0-33d6-4699-8920-4b332abcf59f
-2024-04-26 14:41:49,316 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site2, peer_run=simulate_job, peer_rc=EXECUTION_EXCEPTION, task_name=get_local_average_and_count, task_id=5c18c9e0-33d6-4699-8920-4b332abcf59f]: finished processing client result by average_workflow
-2024-04-26 14:41:49,316 - SubmitUpdateCommand - INFO - submit_update process. client_name:site2   task_id:5c18c9e0-33d6-4699-8920-4b332abcf59f
-2024-04-26 14:41:49,318 - SimulatorClientRunner - INFO - Simulate Run client: site1 on GPU group: None
-2024-04-26 14:41:49,320 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 Not Connected] is closed PID: 376
-2024-04-26 14:41:49,441 - AverageWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: task get_local_average_and_count exit with status TaskCompletionStatus.OK
-2024-04-26 14:41:49,940 - AverageWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: Start aggregation.
-2024-04-26 14:41:49,940 - ServerRunner - ERROR - [identity=simulator_server, run=simulate_job, wf=average_workflow]: Exception in workflow average_workflow: KeyError: 'average'
-2024-04-26 14:41:49,941 - ServerRunner - ERROR - Traceback (most recent call last):
-  File "/usr/local/lib/python3.8/dist-packages/nvflare/private/fed/server/server_runner.py", line 140, in _execute_run
+2024-09-12 13:53:39,280 - SimulatorRunner - INFO - Create the Simulator Server.
+2024-09-12 13:53:39,299 - CoreCell - INFO - server: creating listener on tcp://0:34087
+2024-09-12 13:53:39,378 - CoreCell - INFO - server: created backbone external listener for tcp://0:34087
+2024-09-12 13:53:39,378 - ConnectorManager - INFO - 17162: Try start_listener Listener resources: {'secure': False, 'host': 'localhost'}
+2024-09-12 13:53:39,380 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00002 PASSIVE tcp://0:40223] is starting
+2024-09-12 13:53:39,881 - CoreCell - INFO - server: created backbone internal listener for tcp://localhost:40223
+2024-09-12 13:53:39,881 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 PASSIVE tcp://0:34087] is starting
+2024-09-12 13:53:39,975 - nvflare.fuel.hci.server.hci - INFO - Starting Admin Server localhost on Port 34061
+2024-09-12 13:53:39,975 - SimulatorRunner - INFO - Deploy the Apps.
+2024-09-12 13:53:39,978 - SimulatorRunner - INFO - Create the simulate clients.
+2024-09-12 13:53:39,983 - ClientManager - INFO - Client: New client site-1@192.168.0.105 joined. Sent token: d69b6b2b-f026-43f6-84a9-d00be835edb3.  Total clients: 1
+2024-09-12 13:53:39,983 - FederatedClient - INFO - Successfully registered client:site-1 for project simulator_server. Token:d69b6b2b-f026-43f6-84a9-d00be835edb3 SSID:
+2024-09-12 13:53:39,986 - ClientManager - INFO - Client: New client site-2@192.168.0.105 joined. Sent token: 76d2587e-337d-49f8-b062-de5dda9ab980.  Total clients: 2
+2024-09-12 13:53:39,986 - FederatedClient - INFO - Successfully registered client:site-2 for project simulator_server. Token:76d2587e-337d-49f8-b062-de5dda9ab980 SSID:
+2024-09-12 13:53:39,986 - SimulatorRunner - INFO - Set the client status ready.
+2024-09-12 13:53:39,986 - SimulatorRunner - INFO - Deploy and start the Server App.
+2024-09-12 13:53:39,987 - Cell - INFO - Register blob CB for channel='server_command', topic='*'
+2024-09-12 13:53:39,987 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-12 13:53:39,987 - ServerCommandAgent - INFO - ServerCommandAgent cell register_request_cb: server.simulate_job
+2024-09-12 13:53:47,122 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Server runner starting ...
+2024-09-12 13:53:47,124 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: starting workflow gradient_aggregation_workflow (<class 'workflow.gradient_aggregation_workflow.GradientAggregationWorkflow'>) ...
+2024-09-12 13:53:47,126 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Workflow gradient_aggregation_workflow (<class 'workflow.gradient_aggregation_workflow.GradientAggregationWorkflow'>) started
+2024-09-12 13:53:47,127 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: scheduled task train_and_get_gradients
+2024-09-12 13:53:47,872 - SimulatorClientRunner - INFO - Start the clients run simulation.
+2024-09-12 13:53:48,874 - SimulatorClientRunner - INFO - Simulate Run client: site-1 on GPU group: None
+2024-09-12 13:53:48,876 - SimulatorClientRunner - INFO - Simulate Run client: site-2 on GPU group: None
+2024-09-12 13:53:50,029 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 127.0.0.1:34087 <= 127.0.0.1:37408] is created: PID: 17162
+2024-09-12 13:53:50,033 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 127.0.0.1:34087 <= 127.0.0.1:37422] is created: PID: 17162
+2024-09-12 13:54:04,030 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 Not Connected] is closed PID: 17162
+2024-09-12 13:54:04,043 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 Not Connected] is closed PID: 17162
+2024-09-12 13:54:09,310 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00007 127.0.0.1:34087 <= 127.0.0.1:43182] is created: PID: 17162
+2024-09-12 13:54:16,369 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00007 Not Connected] is closed PID: 17162
+2024-09-12 13:54:17,472 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00008 127.0.0.1:34087 <= 127.0.0.1:55024] is created: PID: 17162
+2024-09-12 13:54:20,846 - FederatedClient - INFO - Shutting down client run: site-1
+2024-09-12 13:54:20,846 - FederatedClient - INFO - Shutting down client run: site-2
+2024-09-12 13:54:20,846 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: asked to abort - triggered abort_signal to stop the RUN
+2024-09-12 13:54:20,848 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00008 Not Connected] is closed PID: 17162
+2024-09-12 13:54:21,164 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Start gradient aggregation.
+2024-09-12 13:54:21,164 - ServerRunner - ERROR - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Exception in workflow gradient_aggregation_workflow: IndexError: list index out of range
+2024-09-12 13:54:21,175 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: task train_and_get_gradients exit with status TaskCompletionStatus.ABORTED
+2024-09-12 13:54:21,183 - ServerRunner - ERROR - Traceback (most recent call last):
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/server/server_runner.py", line 140, in _execute_run
     wf.responder.control_flow(self.abort_signal, fl_ctx)
-  File "/workspace/app/code/workflow/average_workflow.py", line 62, in control_flow
-    aggr_shareable = self.aggregator.aggregate(fl_ctx)
-  File "/workspace/app/code/aggregator/average_aggregator.py", line 57, in aggregate
-    global_average = get_global_average(data_for_aggregation)
-  File "/workspace/app/code/aggregator/get_global_average.py", line 9, in get_global_average
-    weighted_sum = sum(item["average"] * item["count"] for item in items)
-  File "/workspace/app/code/aggregator/get_global_average.py", line 9, in <genexpr>
-    weighted_sum = sum(item["average"] * item["count"] for item in items)
-KeyError: 'average'
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/workflow/gradient_aggregation_workflow.py", line 62, in control_flow
+    aggregated_shareable = self.aggregator.aggregate(fl_ctx)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/aggregator/gradient_aggregator.py", line 19, in aggregate
+    aggregated_gradients = self.average_gradients(self.gradients_list)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/aggregator/gradient_aggregator.py", line 32, in average_gradients
+    sum_arrays = [np.zeros_like(arr) for arr in gradients_list[0]]
+IndexError: list index out of range
 
-2024-04-26 14:41:49,941 - ServerRunner - ERROR - [identity=simulator_server, run=simulate_job, wf=average_workflow]: Aborting current RUN due to FATAL_SYSTEM_ERROR received: Exception in workflow average_workflow: KeyError: 'average'
-2024-04-26 14:41:49,942 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: asked to abort - triggered abort_signal to stop the RUN
-2024-04-26 14:41:49,942 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: Workflow: average_workflow finalizing ...
-2024-04-26 14:41:50,443 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: ABOUT_TO_END_RUN fired
-2024-04-26 14:41:50,444 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: Firing CHECK_END_RUN_READINESS ...
-2024-04-26 14:41:50,444 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: END_RUN fired
-2024-04-26 14:41:50,445 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: Server runner finished.
-2024-04-26 14:41:51,404 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00007 127.0.0.1:41483 <= 127.0.0.1:60466] is created: PID: 376
-2024-04-26 14:41:53,353 - SimulatorServer - INFO - Server app stopped.
+2024-09-12 13:54:21,183 - ServerRunner - ERROR - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Aborting current RUN due to FATAL_SYSTEM_ERROR received: Exception in workflow gradient_aggregation_workflow: IndexError: list index out of range
+2024-09-12 13:54:21,183 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: asked to abort - triggered abort_signal to stop the RUN
+2024-09-12 13:54:21,184 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Workflow: gradient_aggregation_workflow finalizing ...
+2024-09-12 13:54:21,676 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: ABOUT_TO_END_RUN fired
+2024-09-12 13:54:21,677 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Firing CHECK_END_RUN_READINESS ...
+2024-09-12 13:54:21,678 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: END_RUN fired
+2024-09-12 13:54:21,678 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Server runner finished.
+2024-09-12 13:54:23,151 - SimulatorServer - INFO - Server app stopped.
 
 
-2024-04-26 14:41:53,443 - nvflare.fuel.hci.server.hci - INFO - Admin Server localhost on Port 47739 shutdown!
-2024-04-26 14:41:53,443 - SimulatorServer - INFO - shutting down server
-2024-04-26 14:41:53,443 - SimulatorServer - INFO - canceling sync locks
-2024-04-26 14:41:53,444 - SimulatorServer - INFO - server off
-2024-04-26 14:41:55,058 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow, peer=site1, peer_run=simulate_job]: server runner is finalizing - asked client to end the run
-2024-04-26 14:41:55,058 - GetTaskCommand - INFO - return task to client.  client_name: site1  task_name: __end_run__   task_id:   sharable_header_task_id: 
-2024-04-26 14:41:56,610 - SimulatorClientRunner - INFO - Simulate Run client: site2 on GPU group: None
-2024-04-26 14:41:56,621 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00007 Not Connected] is closed PID: 376
-2024-04-26 14:41:57,705 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00008 127.0.0.1:41483 <= 127.0.0.1:37662] is created: PID: 376
-2024-04-26 14:42:02,974 - SimulatorClientRunner - INFO - Simulate Run client: site1 on GPU group: None
-2024-04-26 14:42:02,975 - FederatedClient - INFO - Shutting down client run: site1
-2024-04-26 14:42:02,975 - FederatedClient - INFO - Shutting down client run: site2
-2024-04-26 14:42:02,976 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=average_workflow]: asked to abort - triggered abort_signal to stop the RUN
-2024-04-26 14:42:02,980 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00008 Not Connected] is closed PID: 376
-2024-04-26 14:42:06,457 - MPM - WARNING - #### MPM: still running thread Thread-8
-2024-04-26 14:42:06,457 - MPM - INFO - MPM: Good Bye!
+2024-09-12 13:54:23,428 - nvflare.fuel.hci.server.hci - INFO - Admin Server localhost on Port 34061 shutdown!
+2024-09-12 13:54:23,428 - SimulatorServer - INFO - shutting down server
+2024-09-12 13:54:23,429 - SimulatorServer - INFO - canceling sync locks
+2024-09-12 13:54:23,429 - SimulatorServer - INFO - server off
+2024-09-12 13:54:26,938 - MPM - WARNING - #### MPM: still running thread Thread-8
+2024-09-12 13:54:26,938 - MPM - INFO - MPM: Good Bye!

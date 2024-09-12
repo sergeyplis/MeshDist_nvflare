@@ -3,11 +3,11 @@
   "executors": [
     {
       "tasks": [
-        "get_local_average_and_count",
-        "accept_global_average"
+        "train_and_get_gradients",
+        "accept_aggregated_gradients"
       ],
       "executor": {
-        "path": "executor.average_executor.AverageExecutor",
+        "path": "executor.meshnet_executor.MeshNetExecutor",
         "args": {}
       }
     }
