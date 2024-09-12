@@ -1,8 +1,10 @@
 import torch
 import os
 from nvflare.apis.executor import Executor
-from nvflare.apis.shareable import Shareable
 from nvflare.apis.fl_constant import FLContextKey
+from nvflare.apis.fl_context import FLContext
+from nvflare.apis.shareable import Shareable
+from nvflare.apis.signal import Signal
 from .meshnet import MeshNet  # Import the MeshNet model
 from .loader import Scanloader  # Import the Scanloader for MRI data
 from .dist import GenericLogger  # Import GenericLogger
@@ -24,7 +26,8 @@ class MeshNetExecutor(Executor):
 
         # Initialize data loader (assuming mindboggle.db is the database file)
         # We load the MRI data using the Scanloader class from loader.py, which reads data from an SQLite database.
-        self.data_loader = Scanloader(db_file='mindboggle.db', label_type='GWlabels', num_cubes=1)
+        db_file_path = os.path.join(os.path.dirname(__file__), "mindboggle.db")
+        self.data_loader = Scanloader(db_file=db_file_path, label_type='GWlabels', num_cubes=1)
         self.trainloader, self.validloader, self.testloader = self.data_loader.get_loaders()
 
         # Initializes the logger to write logs to a file named meshnet_executor.log.
@@ -32,7 +35,14 @@ class MeshNetExecutor(Executor):
 
         self.current_iteration = 0
 
-    def execute(self, task_name: str, shareable: Shareable, fl_ctx):
+    def execute(
+        self,
+        task_name: str,
+        shareable: Shareable,
+        fl_ctx: FLContext,
+        abort_signal: Signal,
+    ) -> Shareable:
+
         if task_name == "train_and_get_gradients":
             # Perform local training and return gradients
             # This function trains the model on a single batch of data and returns the gradients.
