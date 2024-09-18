@@ -8,6 +8,7 @@ from nvflare.apis.signal import Signal
 from .meshnet import MeshNet  # Import the MeshNet model
 from .loader import Scanloader  # Import the Scanloader for MRI data
 from .dist import GenericLogger  # Import GenericLogger
+import torch.cuda.amp as amp
 
 class MeshNetExecutor(Executor):
     def __init__(self):
@@ -63,18 +64,27 @@ class MeshNetExecutor(Executor):
         # Perform one iteration of training and return the gradients
         self.model.train()
         image, label = self.get_next_train_batch()
-        #  Fetches the next training batch from the data loader.
-
         image, label = image.to(self.device), label.to(self.device)
 
         self.optimizer.zero_grad()
-        output = self.model(image)
-        loss = self.criterion(output, label)
-        loss.backward()
+
+        # Initialize gradient scaler for mixed precision training
+        scaler = amp.GradScaler()
+
+        # Mixed precision training
+        with amp.autocast():
+            output = self.model(image)
+            loss = self.criterion(output, label)
+
+        # Backward pass with scaled gradients
+        scaler.scale(loss).backward()
+
+        # Step with scaled optimizer
+        scaler.step(self.optimizer)
+        scaler.update()
 
         # Log loss and training information
         self.logger.log_message(f"Iteration {self.current_iteration}: Loss = {loss.item()}")
-
 
         # Extract gradients
         gradients = [param.grad.clone().cpu().numpy() for param in self.model.parameters()]

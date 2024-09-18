@@ -1,100 +1,62 @@
-2024-09-12 15:45:00,179 - ClientTaskWorker - INFO - ClientTaskWorker started to run
-2024-09-12 15:45:00,276 - CoreCell - INFO - site-1.simulate_job: created backbone external connector to tcp://localhost:46239
-2024-09-12 15:45:00,276 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:46239] is starting
-2024-09-12 15:45:00,276 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:48492 => 127.0.0.1:46239] is created: PID: 31583
-2024-09-12 15:45:08,482 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
-2024-09-12 15:45:09,066 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
-2024-09-12 15:45:09,072 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: synced to Server Runner in 0.507331371307373 seconds
-2024-09-12 15:45:09,072 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: client runner started
-2024-09-12 15:45:09,072 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-1
-2024-09-12 15:45:09,078 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.005726 seconds
-2024-09-12 15:45:09,079 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
-2024-09-12 15:45:09,079 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1
-2024-09-12 15:45:09,079 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: invoking task executor MeshNetExecutor
-2024-09-12 15:51:43,991 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: RuntimeError from executor MeshNetExecutor: RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2147483648 bytes. Error code 12 (Cannot allocate memory): Aborting the job!
-2024-09-12 15:51:44,656 - ClientRunner - ERROR - Traceback (most recent call last):
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_runner.py", line 301, in _do_process_task
+2024-09-18 01:32:11,041 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-18 01:32:11,109 - CoreCell - INFO - site-1.simulate_job: created backbone external connector to tcp://localhost:33065
+2024-09-18 01:32:11,110 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:33065] is starting
+2024-09-18 01:32:11,110 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:57904 => 127.0.0.1:33065] is created: PID: 27671
+2024-09-18 01:32:14,150 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-18 01:32:14,655 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-09-18 01:32:14,665 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: synced to Server Runner in 0.510751485824585 seconds
+2024-09-18 01:32:14,665 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: client runner started
+2024-09-18 01:32:14,665 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-1
+2024-09-18 01:32:14,672 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.006386 seconds
+2024-09-18 01:32:14,673 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-09-18 01:32:14,673 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=928c8791-dc9b-4116-8276-2eaca45100f5
+2024-09-18 01:32:14,673 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=928c8791-dc9b-4116-8276-2eaca45100f5]: invoking task executor MeshNetExecutor
+2024-09-18 01:38:03,172 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=928c8791-dc9b-4116-8276-2eaca45100f5]: RuntimeError from executor MeshNetExecutor: RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2147483648 bytes. Error code 12 (Cannot allocate memory): Aborting the job!
+2024-09-18 01:38:03,486 - ClientRunner - ERROR - Traceback (most recent call last):
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_runner.py", line 301, in _do_process_task
     reply = executor.execute(task.name, task.data, fl_ctx, abort_signal)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 49, in execute
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 50, in execute
     gradients = self.train_and_get_gradients()
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 71, in train_and_get_gradients
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 76, in train_and_get_gradients
     output = self.model(image)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
   File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet.py", line 93, in forward
     x = self.model(x)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
     input = module(input)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
     input = module(input)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 608, in forward
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 608, in forward
     return self._conv_forward(input, self.weight, self.bias)
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 603, in _conv_forward
+  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 603, in _conv_forward
     return F.conv3d(
 RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2147483648 bytes. Error code 12 (Cannot allocate memory)
 
-2024-09-12 15:51:45,068 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: try #1: sending task result to server
-2024-09-12 15:51:45,068 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:51:45,086 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:51:50,177 - Cell - INFO - req_id='180ae2fe-5644-4e68-a017-78cb3b4d1f78': remote processing timeout timeout=5.0
-2024-09-12 15:51:50,180 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:51:55,189 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:51:55,190 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:52:00,192 - Cell - INFO - req_id='384057b0-b61b-46dc-a878-062348d7dc64': remote processing timeout timeout=5.0
-2024-09-12 15:52:00,192 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:52:05,198 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:52:05,199 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:52:10,203 - Cell - INFO - req_id='9a5f4195-e752-4b7d-89a7-c6c4c3862dcd': remote processing timeout timeout=5.0
-2024-09-12 15:52:10,205 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:52:15,211 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:52:15,212 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:52:20,216 - Cell - INFO - req_id='9b26d258-c950-432e-bb3e-5ddd6ed1fed0': remote processing timeout timeout=5.0
-2024-09-12 15:52:20,218 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:52:25,224 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:52:25,225 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:52:30,228 - Cell - INFO - req_id='832149de-5ced-49d7-845a-ac0a7e0fd5d3': remote processing timeout timeout=5.0
-2024-09-12 15:52:30,230 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:52:35,236 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:52:35,237 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:52:40,241 - Cell - INFO - req_id='5bff69b2-5780-403a-95e1-32ac7c2f2caf': remote processing timeout timeout=5.0
-2024-09-12 15:52:40,243 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:52:45,249 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:52:45,250 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:52:50,251 - Cell - INFO - req_id='89999413-2f41-402c-a945-a5f1963737d6': remote processing timeout timeout=5.0
-2024-09-12 15:52:50,252 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:52:55,259 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:52:55,260 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:53:00,264 - Cell - INFO - req_id='98d1f120-3326-464c-b4e2-9dc88359e9f2': remote processing timeout timeout=5.0
-2024-09-12 15:53:00,265 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:53:05,270 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:53:05,271 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:53:10,274 - Cell - INFO - req_id='ebe3e46a-7598-494a-bf44-dd72f7aec8b2': remote processing timeout timeout=5.0
-2024-09-12 15:53:10,276 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:53:15,282 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:53:15,283 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:53:20,288 - Cell - INFO - req_id='13a93dac-c7e2-4921-bc3f-4e686de4022c': remote processing timeout timeout=5.0
-2024-09-12 15:53:20,290 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:53:25,292 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:53:25,293 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:53:30,297 - Cell - INFO - req_id='3ddc773b-908e-4284-8943-4f357c3b9d28': remote processing timeout timeout=5.0
-2024-09-12 15:53:30,299 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:53:35,301 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:53:35,302 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-12 15:53:40,303 - Cell - INFO - req_id='c230a73c-eacf-4c7e-ac77-7957d574127a': remote processing timeout timeout=5.0
-2024-09-12 15:53:40,303 - ClientRunner - ERROR - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: failed task_check: COMMUNICATION_ERROR
-2024-09-12 15:53:45,306 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=21eb801a-3fce-4d91-bece-fe5c3c3d42f1]: checking task ...
-2024-09-12 15:53:45,307 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-09-18 01:38:04,221 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=928c8791-dc9b-4116-8276-2eaca45100f5]: try #1: sending task result to server
+2024-09-18 01:38:04,222 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=928c8791-dc9b-4116-8276-2eaca45100f5]: checking task ...
+2024-09-18 01:38:04,234 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-09-18 01:38:04,409 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-09-18 01:38:06,440 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
+2024-09-18 01:38:06,441 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
+2024-09-18 01:38:06,442 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: started end-run events sequence
+2024-09-18 01:38:06,443 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: ABOUT_TO_END_RUN fired
+2024-09-18 01:38:06,445 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-18 01:38:06,447 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: END_RUN fired
+2024-09-18 01:38:06,447 - ClientTaskWorker - INFO - End the Simulator run.
+2024-09-18 01:38:06,490 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-1 
+2024-09-18 01:38:06,499 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 27671
