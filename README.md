@@ -12,6 +12,7 @@ This work is in progress..
 First, clone the repository from GitHub or the relevant location to your machine:
 
 git clone https://github.com/Mmasoud1/MeshDist_nvflare.git
+
 cd MeshDist_NVFlare
 
 
@@ -35,7 +36,9 @@ pip install nvflare==2.4.0
 
 
 Recommended: 
+
 pip install numpy==1.22.0
+
 pip install pandas==2.0.3
 
 
@@ -43,6 +46,7 @@ pip install pandas==2.0.3
 
 
 export PYTHONPATH=$PYTHONPATH:[path to this dir]/app/code/
+
 export NVFLARE_POC_WORKSPACE=[path to this dir]/poc-workspace/
 
 
