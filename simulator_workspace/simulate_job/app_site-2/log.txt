@@ -1,66 +1,64 @@
-2024-09-18 01:32:11,040 - ClientTaskWorker - INFO - ClientTaskWorker started to run
-2024-09-18 01:32:11,109 - CoreCell - INFO - site-2.simulate_job: created backbone external connector to tcp://localhost:33065
-2024-09-18 01:32:11,110 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:33065] is starting
-2024-09-18 01:32:11,110 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:57900 => 127.0.0.1:33065] is created: PID: 27672
-2024-09-18 01:32:14,150 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
-2024-09-18 01:32:14,655 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
-2024-09-18 01:32:14,665 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: synced to Server Runner in 0.5108890533447266 seconds
-2024-09-18 01:32:14,666 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: client runner started
-2024-09-18 01:32:14,666 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-2
-2024-09-18 01:32:14,674 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.008024 seconds
-2024-09-18 01:32:14,675 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
-2024-09-18 01:32:14,675 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=04bf14fb-4e85-47ce-9422-9342284e90dd
-2024-09-18 01:32:14,676 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=04bf14fb-4e85-47ce-9422-9342284e90dd]: invoking task executor MeshNetExecutor
-2024-09-18 01:35:02,837 - ClientRunner - ERROR - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=04bf14fb-4e85-47ce-9422-9342284e90dd]: RuntimeError from executor MeshNetExecutor: RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2147483648 bytes. Error code 12 (Cannot allocate memory): Aborting the job!
-2024-09-18 01:35:04,712 - ClientRunner - ERROR - Traceback (most recent call last):
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/nvflare/private/fed/client/client_runner.py", line 301, in _do_process_task
+2024-09-19 14:28:38,846 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-19 14:28:38,934 - CoreCell - INFO - site-2.simulate_job: created backbone external connector to tcp://localhost:45217
+2024-09-19 14:28:38,934 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:45217] is starting
+2024-09-19 14:28:38,935 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:42044 => 127.0.0.1:45217] is created: PID: 2390
+2024-09-19 14:28:41,025 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-09-19 14:28:41,025 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2024-09-19 14:28:44,700 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-19 14:28:45,207 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-09-19 14:28:45,216 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: synced to Server Runner in 0.5105512142181396 seconds
+2024-09-19 14:28:45,217 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: client runner started
+2024-09-19 14:28:45,217 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-2
+2024-09-19 14:28:45,230 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.012376 seconds
+2024-09-19 14:28:45,230 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-09-19 14:28:45,231 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=562d6620-c62f-48d5-b31b-1d28f350d8fd
+2024-09-19 14:28:45,231 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=562d6620-c62f-48d5-b31b-1d28f350d8fd]: invoking task executor MeshNetExecutor
+2024-09-19 14:28:48,617 - ClientRunner - ERROR - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=562d6620-c62f-48d5-b31b-1d28f350d8fd]: RuntimeError from executor MeshNetExecutor: OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 3.94 GiB of which 495.19 MiB is free. Including non-PyTorch memory, this process has 2.18 GiB memory in use. Process 2389 has 186.00 MiB memory in use. Of the allocated memory 2.13 GiB is allocated by PyTorch, and 5.13 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables): Aborting the job!
+2024-09-19 14:28:48,619 - ClientRunner - ERROR - Traceback (most recent call last):
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/nvflare/private/fed/client/client_runner.py", line 301, in _do_process_task
     reply = executor.execute(task.name, task.data, fl_ctx, abort_signal)
   File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 50, in execute
     gradients = self.train_and_get_gradients()
-  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 76, in train_and_get_gradients
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 70, in train_and_get_gradients
     output = self.model(image)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
   File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet.py", line 93, in forward
     x = self.model(x)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
     input = module(input)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
     input = module(input)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
     return forward_call(*args, **kwargs)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 608, in forward
-    return self._conv_forward(input, self.weight, self.bias)
-  File "/home/mohamed/anaconda3/envs/nvflare_env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 603, in _conv_forward
-    return F.conv3d(
-RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2147483648 bytes. Error code 12 (Cannot allocate memory)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/batchnorm.py", line 176, in forward
+    return F.batch_norm(
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py", line 2512, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 3.94 GiB of which 495.19 MiB is free. Including non-PyTorch memory, this process has 2.18 GiB memory in use. Process 2389 has 186.00 MiB memory in use. Of the allocated memory 2.13 GiB is allocated by PyTorch, and 5.13 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
 
-2024-09-18 01:35:05,288 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=04bf14fb-4e85-47ce-9422-9342284e90dd]: try #1: sending task result to server
-2024-09-18 01:35:05,297 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=04bf14fb-4e85-47ce-9422-9342284e90dd]: checking task ...
-2024-09-18 01:35:05,515 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-18 01:35:06,344 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=04bf14fb-4e85-47ce-9422-9342284e90dd]: start to send task result to server
-2024-09-18 01:35:06,348 - FederatedClient - INFO - Starting to push execute result.
-2024-09-18 01:35:06,783 - Communicator - INFO -  SubmitUpdate size: 579B (579 Bytes). time: 0.431933 seconds
-2024-09-18 01:35:06,783 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=04bf14fb-4e85-47ce-9422-9342284e90dd]: task result sent to server
-2024-09-18 01:35:06,799 - ClientTaskWorker - INFO - Finished one task run for client: site-2 interval: 2 task_processed: True
-2024-09-18 01:35:08,985 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
-2024-09-18 01:35:08,986 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
-2024-09-18 01:35:08,986 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: started end-run events sequence
-2024-09-18 01:35:08,987 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: ABOUT_TO_END_RUN fired
-2024-09-18 01:35:08,994 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
-2024-09-18 01:35:08,995 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: END_RUN fired
-2024-09-18 01:35:08,995 - ClientTaskWorker - INFO - End the Simulator run.
-2024-09-18 01:35:09,018 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-2 
-2024-09-18 01:35:09,069 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 27672
+2024-09-19 14:28:48,619 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=562d6620-c62f-48d5-b31b-1d28f350d8fd]: try #1: sending task result to server
+2024-09-19 14:28:48,619 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=562d6620-c62f-48d5-b31b-1d28f350d8fd]: checking task ...
+2024-09-19 14:28:48,619 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-09-19 14:28:48,624 - ClientTaskWorker - INFO - Finished one task run for client: site-2 interval: 2 task_processed: True
+2024-09-19 14:28:50,630 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
+2024-09-19 14:28:50,631 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
+2024-09-19 14:28:50,631 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: started end-run events sequence
+2024-09-19 14:28:50,631 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: ABOUT_TO_END_RUN fired
+2024-09-19 14:28:50,631 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:28:50,632 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: END_RUN fired
+2024-09-19 14:28:50,632 - ClientTaskWorker - INFO - End the Simulator run.
+2024-09-19 14:28:50,674 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-2 
+2024-09-19 14:28:50,676 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 2390

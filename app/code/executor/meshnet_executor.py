@@ -67,21 +67,9 @@ class MeshNetExecutor(Executor):
         image, label = image.to(self.device), label.to(self.device)
 
         self.optimizer.zero_grad()
-
-        # Initialize gradient scaler for mixed precision training
-        scaler = amp.GradScaler()
-
-        # Mixed precision training
-        with amp.autocast():
-            output = self.model(image)
-            loss = self.criterion(output, label)
-
-        # Backward pass with scaled gradients
-        scaler.scale(loss).backward()
-
-        # Step with scaled optimizer
-        scaler.step(self.optimizer)
-        scaler.update()
+        output = self.model(image)
+        loss = self.criterion(output, label)
+        loss.backward()
 
         # Log loss and training information
         self.logger.log_message(f"Iteration {self.current_iteration}: Loss = {loss.item()}")
