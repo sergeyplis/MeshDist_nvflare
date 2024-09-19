@@ -1,0 +1,82 @@
+2024-09-19 14:56:46,069 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-19 14:56:46,144 - CoreCell - INFO - site1.simulate_job: created backbone external connector to tcp://localhost:57017
+2024-09-19 14:56:46,144 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:57017] is starting
+2024-09-19 14:56:46,145 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:43888 => 127.0.0.1:57017] is created: PID: 4621
+2024-09-19 14:56:48,230 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-09-19 14:56:48,230 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2024-09-19 14:56:51,713 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-19 14:56:52,219 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-09-19 14:56:52,224 - ClientRunner - INFO - [identity=site1, run=simulate_job]: synced to Server Runner in 0.5063321590423584 seconds
+2024-09-19 14:56:52,225 - ClientRunner - INFO - [identity=site1, run=simulate_job]: client runner started
+2024-09-19 14:56:52,225 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site1
+2024-09-19 14:56:52,230 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.004311 seconds
+2024-09-19 14:56:52,230 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-09-19 14:56:52,230 - ClientRunner - INFO - [identity=site1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=e0b54e45-81c5-4af6-83cf-ea1addeb3bdb
+2024-09-19 14:56:52,230 - ClientRunner - INFO - [identity=site1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=e0b54e45-81c5-4af6-83cf-ea1addeb3bdb]: invoking task executor MeshNetExecutor
+2024-09-19 14:56:52,870 - ClientRunner - ERROR - [identity=site1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=e0b54e45-81c5-4af6-83cf-ea1addeb3bdb]: RuntimeError from executor MeshNetExecutor: OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 3.94 GiB of which 732.06 MiB is free. Including non-PyTorch memory, this process has 2.18 GiB memory in use. Of the allocated memory 2.13 GiB is allocated by PyTorch, and 5.13 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables): Aborting the job!
+2024-09-19 14:56:52,872 - ClientRunner - ERROR - Traceback (most recent call last):
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/nvflare/private/fed/client/client_runner.py", line 301, in _do_process_task
+    reply = executor.execute(task.name, task.data, fl_ctx, abort_signal)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 50, in execute
+    gradients = self.train_and_get_gradients()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 70, in train_and_get_gradients
+    output = self.model(image)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet.py", line 93, in forward
+    x = self.model(x)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/batchnorm.py", line 176, in forward
+    return F.batch_norm(
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py", line 2512, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 3.94 GiB of which 732.06 MiB is free. Including non-PyTorch memory, this process has 2.18 GiB memory in use. Of the allocated memory 2.13 GiB is allocated by PyTorch, and 5.13 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+2024-09-19 14:56:52,872 - ClientRunner - INFO - [identity=site1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=e0b54e45-81c5-4af6-83cf-ea1addeb3bdb]: try #1: sending task result to server
+2024-09-19 14:56:52,873 - ClientRunner - INFO - [identity=site1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=e0b54e45-81c5-4af6-83cf-ea1addeb3bdb]: checking task ...
+2024-09-19 14:56:52,873 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-09-19 14:56:52,876 - ClientRunner - INFO - [identity=site1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=e0b54e45-81c5-4af6-83cf-ea1addeb3bdb]: start to send task result to server
+2024-09-19 14:56:52,876 - FederatedClient - INFO - Starting to push execute result.
+2024-09-19 14:56:52,880 - Communicator - INFO -  SubmitUpdate size: 577B (577 Bytes). time: 0.003933 seconds
+2024-09-19 14:56:52,880 - ClientRunner - INFO - [identity=site1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=e0b54e45-81c5-4af6-83cf-ea1addeb3bdb]: task result sent to server
+2024-09-19 14:56:52,881 - ClientTaskWorker - INFO - Finished one task run for client: site1 interval: 2 task_processed: True
+2024-09-19 14:56:52,881 - ClientTaskWorker - INFO - Clean up ClientRunner for : site1 
+2024-09-19 14:56:52,882 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 4621
+2024-09-19 14:57:03,563 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-19 14:57:03,636 - CoreCell - INFO - site1.simulate_job: created backbone external connector to tcp://localhost:57017
+2024-09-19 14:57:03,637 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:57017] is starting
+2024-09-19 14:57:03,637 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:60186 => 127.0.0.1:57017] is created: PID: 4722
+2024-09-19 14:57:05,710 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-09-19 14:57:05,710 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2024-09-19 14:57:09,143 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-19 14:57:09,650 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-09-19 14:57:09,655 - ClientRunner - INFO - [identity=site1, run=simulate_job]: synced to Server Runner in 0.5058870315551758 seconds
+2024-09-19 14:57:09,655 - ClientRunner - INFO - [identity=site1, run=simulate_job]: client runner started
+2024-09-19 14:57:09,656 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site1
+2024-09-19 14:57:09,656 - ClientRunner - INFO - [identity=site1, run=simulate_job]: started end-run events sequence
+2024-09-19 14:57:09,656 - ClientRunner - INFO - [identity=site1, run=simulate_job]: ABOUT_TO_END_RUN fired
+2024-09-19 14:57:09,656 - ClientRunner - INFO - [identity=site1, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:10,157 - ClientRunner - INFO - [identity=site1, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:10,658 - ClientRunner - INFO - [identity=site1, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:11,159 - ClientRunner - INFO - [identity=site1, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:11,160 - ClientRunner - INFO - [identity=site1, run=simulate_job]: END_RUN fired
+2024-09-19 14:57:11,160 - ClientTaskWorker - INFO - Simulator END_RUN sequence.
+2024-09-19 14:57:11,202 - ClientTaskWorker - INFO - Clean up ClientRunner for : site1 
+2024-09-19 14:57:11,205 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 4722

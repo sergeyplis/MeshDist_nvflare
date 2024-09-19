@@ -1,0 +1,23 @@
+2024-09-19 14:56:54,913 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-19 14:56:54,984 - CoreCell - INFO - site2.simulate_job: created backbone external connector to tcp://localhost:57017
+2024-09-19 14:56:54,984 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:57017] is starting
+2024-09-19 14:56:54,985 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:33804 => 127.0.0.1:57017] is created: PID: 4684
+2024-09-19 14:56:57,062 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-09-19 14:56:57,062 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2024-09-19 14:57:00,465 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-19 14:57:00,972 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-09-19 14:57:00,977 - ClientRunner - INFO - [identity=site2, run=simulate_job]: synced to Server Runner in 0.5055780410766602 seconds
+2024-09-19 14:57:00,977 - ClientRunner - INFO - [identity=site2, run=simulate_job]: client runner started
+2024-09-19 14:57:00,977 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site2
+2024-09-19 14:57:00,981 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
+2024-09-19 14:57:00,981 - ClientRunner - INFO - [identity=site2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
+2024-09-19 14:57:00,981 - ClientRunner - INFO - [identity=site2, run=simulate_job]: started end-run events sequence
+2024-09-19 14:57:00,981 - ClientRunner - INFO - [identity=site2, run=simulate_job]: ABOUT_TO_END_RUN fired
+2024-09-19 14:57:00,982 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:01,482 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:01,983 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:02,484 - ClientRunner - INFO - [identity=site2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 14:57:02,485 - ClientRunner - INFO - [identity=site2, run=simulate_job]: END_RUN fired
+2024-09-19 14:57:02,485 - ClientTaskWorker - INFO - End the Simulator run.
+2024-09-19 14:57:02,530 - ClientTaskWorker - INFO - Clean up ClientRunner for : site2 
+2024-09-19 14:57:02,549 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 4684
