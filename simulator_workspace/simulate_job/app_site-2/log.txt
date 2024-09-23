@@ -1,0 +1,78 @@
+2024-09-19 16:26:16,807 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-09-19 16:26:16,910 - CoreCell - INFO - site-2.simulate_job: created backbone external connector to tcp://localhost:48267
+2024-09-19 16:26:16,911 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:48267] is starting
+2024-09-19 16:26:16,913 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:56262 => 127.0.0.1:48267] is created: PID: 10920
+2024-09-19 16:26:19,045 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-09-19 16:26:19,045 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2024-09-19 16:26:23,889 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-19 16:26:24,395 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-09-19 16:26:24,400 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: synced to Server Runner in 0.5059716701507568 seconds
+2024-09-19 16:26:24,401 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: client runner started
+2024-09-19 16:26:24,401 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-2
+2024-09-19 16:26:24,405 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.004241 seconds
+2024-09-19 16:26:24,406 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-09-19 16:26:24,407 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=cea3d6ef-f637-410f-b6eb-0e43c3af1dda
+2024-09-19 16:26:24,408 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=cea3d6ef-f637-410f-b6eb-0e43c3af1dda]: invoking task executor MeshNetExecutor
+2024-09-19 16:26:27,155 - ClientRunner - ERROR - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=cea3d6ef-f637-410f-b6eb-0e43c3af1dda]: RuntimeError from executor MeshNetExecutor: OutOfMemoryError: CUDA out of memory. Tried to allocate 320.00 MiB. GPU 0 has a total capacity of 3.94 GiB of which 313.25 MiB is free. Process 10921 has 510.00 MiB memory in use. Including non-PyTorch memory, this process has 2.07 GiB memory in use. Of the allocated memory 2.00 GiB is allocated by PyTorch, and 13.95 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables): Aborting the job!
+2024-09-19 16:26:27,178 - ClientRunner - ERROR - Traceback (most recent call last):
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/nvflare/private/fed/client/client_runner.py", line 301, in _do_process_task
+    reply = executor.execute(task.name, task.data, fl_ctx, abort_signal)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 51, in execute
+    gradients = self.train_and_get_gradients()
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet_executor.py", line 71, in train_and_get_gradients
+    output = self.model(image)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet.py", line 114, in forward
+    return self.train_forward(x)
+  File "/media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/app/code/executor/meshnet.py", line 100, in train_forward
+    y = checkpoint_sequential(
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/utils/checkpoint.py", line 579, in checkpoint_sequential
+    input = checkpoint(
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/_compile.py", line 31, in inner
+    return disable_fn(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/_dynamo/eval_frame.py", line 600, in _fn
+    return fn(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/utils/checkpoint.py", line 481, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/utils/checkpoint.py", line 255, in forward
+    outputs = run_function(*args)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/utils/checkpoint.py", line 566, in forward
+    input = functions[j](input)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/modules/batchnorm.py", line 176, in forward
+    return F.batch_norm(
+  File "/home/mohamed/anaconda3/lib/python3.8/site-packages/torch/nn/functional.py", line 2512, in batch_norm
+    return torch.batch_norm(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 320.00 MiB. GPU 0 has a total capacity of 3.94 GiB of which 313.25 MiB is free. Process 10921 has 510.00 MiB memory in use. Including non-PyTorch memory, this process has 2.07 GiB memory in use. Of the allocated memory 2.00 GiB is allocated by PyTorch, and 13.95 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+2024-09-19 16:26:27,179 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=cea3d6ef-f637-410f-b6eb-0e43c3af1dda]: try #1: sending task result to server
+2024-09-19 16:26:27,179 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=cea3d6ef-f637-410f-b6eb-0e43c3af1dda]: checking task ...
+2024-09-19 16:26:27,179 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-09-19 16:26:27,184 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=cea3d6ef-f637-410f-b6eb-0e43c3af1dda]: start to send task result to server
+2024-09-19 16:26:27,184 - FederatedClient - INFO - Starting to push execute result.
+2024-09-19 16:26:27,201 - Communicator - INFO -  SubmitUpdate size: 579B (579 Bytes). time: 0.016316 seconds
+2024-09-19 16:26:27,201 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=cea3d6ef-f637-410f-b6eb-0e43c3af1dda]: task result sent to server
+2024-09-19 16:26:27,201 - ClientTaskWorker - INFO - Finished one task run for client: site-2 interval: 2 task_processed: True
+2024-09-19 16:26:29,210 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
+2024-09-19 16:26:29,210 - ClientRunner - INFO - [identity=site-2, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
+2024-09-19 16:26:29,210 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: started end-run events sequence
+2024-09-19 16:26:29,210 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: ABOUT_TO_END_RUN fired
+2024-09-19 16:26:29,211 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-09-19 16:26:29,211 - ClientRunner - INFO - [identity=site-2, run=simulate_job]: END_RUN fired
+2024-09-19 16:26:29,211 - ClientTaskWorker - INFO - End the Simulator run.
+2024-09-19 16:26:29,254 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-2 
+2024-09-19 16:26:29,256 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 10920

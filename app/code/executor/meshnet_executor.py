@@ -6,6 +6,7 @@ from nvflare.apis.fl_context import FLContext
 from nvflare.apis.shareable import Shareable
 from nvflare.apis.signal import Signal
 from .meshnet import MeshNet  # Import the MeshNet model
+from .meshnet import enMesh_checkpoint
 from .loader import Scanloader  # Import the Scanloader for MRI data
 from .dist import GenericLogger  # Import GenericLogger
 import torch.cuda.amp as amp
@@ -17,7 +18,7 @@ class MeshNetExecutor(Executor):
         # Model Initialization: The MeshNet model is initialized with input channels, number of classes, and the configuration file (modelAE.json).
         # Construct the absolute path to the modelAE.json file
         config_file_path = os.path.join(os.path.dirname(__file__), "modelAE.json")
-        self.model = MeshNet(in_channels=1, n_classes=3, channels=32, config_file=config_file_path)        
+        self.model = enMesh_checkpoint(in_channels=1, n_classes=3, channels=5, config_file=config_file_path)        
 
         # self.model = MeshNet(in_channels=1, n_classes=3, channels=32, config_file="modelAE.json")
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
