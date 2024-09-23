@@ -10,38 +10,31 @@ from .meshnet import enMesh_checkpoint
 from .loader import Scanloader  # Import the Scanloader for MRI data
 from .dist import GenericLogger  # Import GenericLogger
 import torch.cuda.amp as amp
-from torch.utils.checkpoint import checkpoint  # For layer checkpointing
 
 class MeshNetExecutor(Executor):
     def __init__(self):
         super().__init__()
-        # Model Initialization
+        # Initialize the MeshNet model
+        # Model Initialization: The MeshNet model is initialized with input channels, number of classes, and the configuration file (modelAE.json).
+        # Construct the absolute path to the modelAE.json file
         config_file_path = os.path.join(os.path.dirname(__file__), "modelAE.json")
-        self.model = enMesh_checkpoint(in_channels=1, n_classes=3, channels=1, config_file=config_file_path)
+        self.model = enMesh_checkpoint(in_channels=1, n_classes=3, channels=1, config_file=config_file_path)        
 
-        # Check if GPU availabel
+        # self.model = MeshNet(in_channels=1, n_classes=3, channels=32, config_file="modelAE.json")
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
-
-        # Ensure model parameters require gradients
-        for param in self.model.parameters():
-            param.requires_grad = True
-
-        # Optimizer and criterion setup
         self.optimizer = torch.optim.RMSprop(self.model.parameters(), lr=0.001)
-        # I guess adam also can be used 
         self.criterion = torch.nn.CrossEntropyLoss()
 
-        # amp for mixed precision to overcome memory limitation for now 
-        self.scaler = amp.GradScaler()
-
-        # Data Loader with min batch size to save memory
+        # Initialize data loader (assuming mindboggle.db is the database file)
+        # We load the MRI data using the Scanloader class from loader.py, which reads data from an SQLite database.
         db_file_path = os.path.join(os.path.dirname(__file__), "mindboggle.db")
         self.data_loader = Scanloader(db_file=db_file_path, label_type='GWlabels', num_cubes=1)
-        self.trainloader, self.validloader, self.testloader = self.data_loader.get_loaders(batch_size=1)  
+        self.trainloader, self.validloader, self.testloader = self.data_loader.get_loaders()
 
-        # Logger can be found for example with: MeshDist_nvflare/simulator_workspace/simulate_job/app_site-1 and app_site-2
-        self.logger = GenericLogger(log_file_path='meshnet_executor.log')
+        # Initializes the logger to write logs to a file named meshnet_executor.log.
+        self.logger = GenericLogger(log_file_path='meshnet_executor.log')        
+
         self.current_iteration = 0
 
     def execute(
@@ -53,53 +46,45 @@ class MeshNetExecutor(Executor):
     ) -> Shareable:
 
         if task_name == "train_and_get_gradients":
+            # Perform local training and return gradients
+            # This function trains the model on a single batch of data and returns the gradients.
             gradients = self.train_and_get_gradients()
             outgoing_shareable = Shareable()
             outgoing_shareable["gradients"] = gradients
             return outgoing_shareable
 
         elif task_name == "accept_aggregated_gradients":
+            # Accept aggregated gradients and apply them to the model
             aggregated_gradients = shareable["aggregated_gradients"]
+
+            # Applies the aggregated gradients from the central node to update the model.
             self.apply_gradients(aggregated_gradients)
             return Shareable()
 
     def train_and_get_gradients(self):
+        # Perform one iteration of training and return the gradients
         self.model.train()
         image, label = self.get_next_train_batch()
         image, label = image.to(self.device), label.to(self.device)
 
-        # Ensure input requires gradients
-        image.requires_grad = True
-
         self.optimizer.zero_grad()
+        output = self.model(image)
 
-        # Mixed precision and checkpointing
-        with amp.autocast():
-            # Ensure checkpoint works with requires_grad
-            output = self.model(image)  # To avoid using checkpointing for now
+        # Fix the shape mismatch
+        label = label.squeeze(1)  # Remove the extra channel dimension        
+        loss = self.criterion(output, label.long())
+        # label.long()) ensures the labels are cast to the Long type, which is required by the CrossEntropyLoss function
+        loss.backward()
 
-            # Fix shape dim and ensure label is in long type
-            label = label.squeeze(1)
-            loss = self.criterion(output, label.long())
-
-        # Scale the loss before backward pass with amp
-        self.scaler.scale(loss).backward()
-
-        # Update the optimizer with scaled gradients
-        self.scaler.step(self.optimizer)
-        self.scaler.update()
-
-        # Log loss
+        # Log loss and training information
         self.logger.log_message(f"Iteration {self.current_iteration}: Loss = {loss.item()}")
 
         # Extract gradients
-        gradients = [param.grad.clone().cpu().numpy() for param in self.model.parameters() if param.grad is not None]
+        gradients = [param.grad.clone().cpu().numpy() for param in self.model.parameters()]
         self.current_iteration += 1
-
-        # Clear GPU memory cache to free memory
-        torch.cuda.empty_cache()
-
         return gradients
+
+       
 
     def get_next_train_batch(self):
         # Get the next batch of data from the trainloader
@@ -114,8 +99,6 @@ class MeshNetExecutor(Executor):
                 param.grad = torch.tensor(grad).to(self.device)
             self.optimizer.step()
 
-        # Clear GPU memory cache after applying gradients
-        torch.cuda.empty_cache()
 
         # Log the gradient application step
         self.logger.log_message("Aggregated gradients applied to the model.")
