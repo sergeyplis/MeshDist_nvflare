@@ -9,9 +9,16 @@ class GradientAggregator(Aggregator):
         self.gradients_list = []
 
     def accept(self, shareable: Shareable, fl_ctx: FLContext):
+        if "gradients" not in shareable:
+            return False  # Reject invalid results        
         # Accept collects the gradients from client nodes and stores them in a list.
         gradients = shareable["gradients"]
+        
+        if not gradients:
+            return False  # Reject empty gradients
+        
         self.gradients_list.append(gradients)
+        return True
 
     def aggregate(self, fl_ctx: FLContext) -> Shareable:
         # Perform gradient aggregation by averaging the gradients across clients and sends the aggregated gradients back to the clients.

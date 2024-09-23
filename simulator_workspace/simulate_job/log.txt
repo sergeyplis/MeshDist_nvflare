@@ -1,81 +1,81 @@
-2024-09-23 17:15:38,446 - SimulatorRunner - INFO - Create the Simulator Server.
-2024-09-23 17:15:38,450 - CoreCell - INFO - server: creating listener on tcp://0:54829
-2024-09-23 17:15:38,479 - CoreCell - INFO - server: created backbone external listener for tcp://0:54829
-2024-09-23 17:15:38,479 - ConnectorManager - INFO - 18047: Try start_listener Listener resources: {'secure': False, 'host': 'localhost'}
-2024-09-23 17:15:38,480 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00002 PASSIVE tcp://0:48224] is starting
-2024-09-23 17:15:38,981 - CoreCell - INFO - server: created backbone internal listener for tcp://localhost:48224
-2024-09-23 17:15:38,982 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 PASSIVE tcp://0:54829] is starting
-2024-09-23 17:15:39,101 - nvflare.fuel.hci.server.hci - INFO - Starting Admin Server localhost on Port 60195
-2024-09-23 17:15:39,101 - SimulatorRunner - INFO - Deploy the Apps.
-2024-09-23 17:15:39,103 - SimulatorRunner - INFO - Create the simulate clients.
-2024-09-23 17:15:39,108 - ClientManager - INFO - Client: New client site-1@192.168.0.105 joined. Sent token: eb0e37b3-b924-4d94-8470-6fa243d02aa1.  Total clients: 1
-2024-09-23 17:15:39,109 - FederatedClient - INFO - Successfully registered client:site-1 for project simulator_server. Token:eb0e37b3-b924-4d94-8470-6fa243d02aa1 SSID:
-2024-09-23 17:15:39,110 - ClientManager - INFO - Client: New client site-2@192.168.0.105 joined. Sent token: a07986db-1af1-42c5-844a-e5a10a107d01.  Total clients: 2
-2024-09-23 17:15:39,110 - FederatedClient - INFO - Successfully registered client:site-2 for project simulator_server. Token:a07986db-1af1-42c5-844a-e5a10a107d01 SSID:
-2024-09-23 17:15:39,110 - SimulatorRunner - INFO - Set the client status ready.
-2024-09-23 17:15:39,110 - SimulatorRunner - INFO - Deploy and start the Server App.
-2024-09-23 17:15:39,112 - Cell - INFO - Register blob CB for channel='server_command', topic='*'
-2024-09-23 17:15:39,112 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
-2024-09-23 17:15:39,112 - ServerCommandAgent - INFO - ServerCommandAgent cell register_request_cb: server.simulate_job
-2024-09-23 17:15:41,741 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
-2024-09-23 17:15:41,741 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
-2024-09-23 17:15:43,888 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Server runner starting ...
-2024-09-23 17:15:43,890 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: starting workflow gradient_aggregation_workflow (<class 'workflow.gradient_aggregation_workflow.GradientAggregationWorkflow'>) ...
-2024-09-23 17:15:43,891 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Workflow gradient_aggregation_workflow (<class 'workflow.gradient_aggregation_workflow.GradientAggregationWorkflow'>) started
-2024-09-23 17:15:43,893 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: scheduled task train_and_get_gradients
-2024-09-23 17:15:44,439 - SimulatorClientRunner - INFO - Start the clients run simulation.
-2024-09-23 17:15:45,442 - SimulatorClientRunner - INFO - Simulate Run client: site-1 on GPU group: None
-2024-09-23 17:15:45,443 - SimulatorClientRunner - INFO - Simulate Run client: site-2 on GPU group: None
-2024-09-23 17:15:46,576 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 127.0.0.1:54829 <= 127.0.0.1:37506] is created: PID: 18047
-2024-09-23 17:15:46,578 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 127.0.0.1:54829 <= 127.0.0.1:37510] is created: PID: 18047
-2024-09-23 17:15:54,370 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=c5825a07-ca5d-4a9b-987b-7695b1705c52]: assigned task to client site-2: name=train_and_get_gradients, id=c5825a07-ca5d-4a9b-987b-7695b1705c52
-2024-09-23 17:15:54,372 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=c5825a07-ca5d-4a9b-987b-7695b1705c52]: sent task assignment to client. client_name:site-2 task_id:c5825a07-ca5d-4a9b-987b-7695b1705c52
-2024-09-23 17:15:54,374 - GetTaskCommand - INFO - return task to client.  client_name: site-2  task_name: train_and_get_gradients   task_id: c5825a07-ca5d-4a9b-987b-7695b1705c52  sharable_header_task_id: c5825a07-ca5d-4a9b-987b-7695b1705c52
-2024-09-23 17:15:54,383 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=fdcd44d0-fc62-4f12-81ca-9d66ce0ae759]: assigned task to client site-1: name=train_and_get_gradients, id=fdcd44d0-fc62-4f12-81ca-9d66ce0ae759
-2024-09-23 17:15:54,385 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=fdcd44d0-fc62-4f12-81ca-9d66ce0ae759]: sent task assignment to client. client_name:site-1 task_id:fdcd44d0-fc62-4f12-81ca-9d66ce0ae759
-2024-09-23 17:15:54,386 - GetTaskCommand - INFO - return task to client.  client_name: site-1  task_name: train_and_get_gradients   task_id: fdcd44d0-fc62-4f12-81ca-9d66ce0ae759  sharable_header_task_id: fdcd44d0-fc62-4f12-81ca-9d66ce0ae759
-2024-09-23 17:15:59,940 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job]: got result from client site-1 for task: name=train_and_get_gradients, id=fdcd44d0-fc62-4f12-81ca-9d66ce0ae759
-2024-09-23 17:15:59,941 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, peer_rc=OK, task_name=train_and_get_gradients, task_id=fdcd44d0-fc62-4f12-81ca-9d66ce0ae759]: finished processing client result by gradient_aggregation_workflow
-2024-09-23 17:15:59,941 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-1   task_id:fdcd44d0-fc62-4f12-81ca-9d66ce0ae759
-2024-09-23 17:16:04,918 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job]: got result from client site-2 for task: name=train_and_get_gradients, id=c5825a07-ca5d-4a9b-987b-7695b1705c52
-2024-09-23 17:16:04,919 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train_and_get_gradients, task_id=c5825a07-ca5d-4a9b-987b-7695b1705c52]: finished processing client result by gradient_aggregation_workflow
-2024-09-23 17:16:04,919 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-2   task_id:c5825a07-ca5d-4a9b-987b-7695b1705c52
-2024-09-23 17:16:04,920 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: task train_and_get_gradients exit with status TaskCompletionStatus.OK
-2024-09-23 17:16:05,419 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Start gradient aggregation.
-2024-09-23 17:16:05,424 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: End gradient aggregation.
-2024-09-23 17:16:05,425 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: scheduled task accept_aggregated_gradients
-2024-09-23 17:16:05,470 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=a3c80c6f-0e15-4590-beb7-1e8de22dbe02]: assigned task to client site-1: name=accept_aggregated_gradients, id=a3c80c6f-0e15-4590-beb7-1e8de22dbe02
-2024-09-23 17:16:05,472 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=a3c80c6f-0e15-4590-beb7-1e8de22dbe02]: sent task assignment to client. client_name:site-1 task_id:a3c80c6f-0e15-4590-beb7-1e8de22dbe02
-2024-09-23 17:16:05,473 - GetTaskCommand - INFO - return task to client.  client_name: site-1  task_name: accept_aggregated_gradients   task_id: a3c80c6f-0e15-4590-beb7-1e8de22dbe02  sharable_header_task_id: a3c80c6f-0e15-4590-beb7-1e8de22dbe02
-2024-09-23 17:16:05,543 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job]: got result from client site-1 for task: name=accept_aggregated_gradients, id=a3c80c6f-0e15-4590-beb7-1e8de22dbe02
-2024-09-23 17:16:05,544 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, peer_rc=OK, task_name=accept_aggregated_gradients, task_id=a3c80c6f-0e15-4590-beb7-1e8de22dbe02]: finished processing client result by gradient_aggregation_workflow
-2024-09-23 17:16:05,544 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-1   task_id:a3c80c6f-0e15-4590-beb7-1e8de22dbe02
-2024-09-23 17:16:06,932 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=daa973b2-3581-4564-a1f2-a38c987f4a19]: assigned task to client site-2: name=accept_aggregated_gradients, id=daa973b2-3581-4564-a1f2-a38c987f4a19
-2024-09-23 17:16:06,934 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=daa973b2-3581-4564-a1f2-a38c987f4a19]: sent task assignment to client. client_name:site-2 task_id:daa973b2-3581-4564-a1f2-a38c987f4a19
-2024-09-23 17:16:06,935 - GetTaskCommand - INFO - return task to client.  client_name: site-2  task_name: accept_aggregated_gradients   task_id: daa973b2-3581-4564-a1f2-a38c987f4a19  sharable_header_task_id: daa973b2-3581-4564-a1f2-a38c987f4a19
-2024-09-23 17:16:06,991 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job]: got result from client site-2 for task: name=accept_aggregated_gradients, id=daa973b2-3581-4564-a1f2-a38c987f4a19
-2024-09-23 17:16:06,992 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=accept_aggregated_gradients, task_id=daa973b2-3581-4564-a1f2-a38c987f4a19]: finished processing client result by gradient_aggregation_workflow
-2024-09-23 17:16:06,992 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-2   task_id:daa973b2-3581-4564-a1f2-a38c987f4a19
-2024-09-23 17:16:07,431 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: task accept_aggregated_gradients exit with status TaskCompletionStatus.OK
-2024-09-23 17:16:07,929 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Workflow: gradient_aggregation_workflow finalizing ...
-2024-09-23 17:16:07,932 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: ABOUT_TO_END_RUN fired
-2024-09-23 17:16:07,932 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Firing CHECK_END_RUN_READINESS ...
-2024-09-23 17:16:07,932 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: END_RUN fired
-2024-09-23 17:16:07,932 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Server runner finished.
-2024-09-23 17:16:08,058 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job]: server runner is finalizing - asked client to end the run
-2024-09-23 17:16:08,061 - GetTaskCommand - INFO - return task to client.  client_name: site-1  task_name: __end_run__   task_id:   sharable_header_task_id: 
-2024-09-23 17:16:08,110 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 Not Connected] is closed PID: 18047
-2024-09-23 17:16:08,998 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job]: server runner is finalizing - asked client to end the run
-2024-09-23 17:16:08,998 - GetTaskCommand - INFO - return task to client.  client_name: site-2  task_name: __end_run__   task_id:   sharable_header_task_id: 
-2024-09-23 17:16:09,047 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 Not Connected] is closed PID: 18047
-2024-09-23 17:16:09,050 - FederatedClient - INFO - Shutting down client run: site-1
-2024-09-23 17:16:09,059 - FederatedClient - INFO - Shutting down client run: site-2
-2024-09-23 17:16:09,060 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: asked to abort - triggered abort_signal to stop the RUN
-2024-09-23 17:16:10,923 - SimulatorServer - INFO - Server app stopped.
+2024-09-23 18:48:04,651 - SimulatorRunner - INFO - Create the Simulator Server.
+2024-09-23 18:48:04,655 - CoreCell - INFO - server: creating listener on tcp://0:34835
+2024-09-23 18:48:04,686 - CoreCell - INFO - server: created backbone external listener for tcp://0:34835
+2024-09-23 18:48:04,687 - ConnectorManager - INFO - 26904: Try start_listener Listener resources: {'secure': False, 'host': 'localhost'}
+2024-09-23 18:48:04,688 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00002 PASSIVE tcp://0:25343] is starting
+2024-09-23 18:48:05,189 - CoreCell - INFO - server: created backbone internal listener for tcp://localhost:25343
+2024-09-23 18:48:05,189 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 PASSIVE tcp://0:34835] is starting
+2024-09-23 18:48:05,285 - nvflare.fuel.hci.server.hci - INFO - Starting Admin Server localhost on Port 56621
+2024-09-23 18:48:05,285 - SimulatorRunner - INFO - Deploy the Apps.
+2024-09-23 18:48:05,287 - SimulatorRunner - INFO - Create the simulate clients.
+2024-09-23 18:48:05,293 - ClientManager - INFO - Client: New client site-1@192.168.0.105 joined. Sent token: 6544a191-f53c-4900-8132-0e7a8350e2bf.  Total clients: 1
+2024-09-23 18:48:05,293 - FederatedClient - INFO - Successfully registered client:site-1 for project simulator_server. Token:6544a191-f53c-4900-8132-0e7a8350e2bf SSID:
+2024-09-23 18:48:05,295 - ClientManager - INFO - Client: New client site-2@192.168.0.105 joined. Sent token: 1d03ea87-60f1-49b8-bd7d-ef97fa5800e5.  Total clients: 2
+2024-09-23 18:48:05,295 - FederatedClient - INFO - Successfully registered client:site-2 for project simulator_server. Token:1d03ea87-60f1-49b8-bd7d-ef97fa5800e5 SSID:
+2024-09-23 18:48:05,295 - SimulatorRunner - INFO - Set the client status ready.
+2024-09-23 18:48:05,295 - SimulatorRunner - INFO - Deploy and start the Server App.
+2024-09-23 18:48:05,296 - Cell - INFO - Register blob CB for channel='server_command', topic='*'
+2024-09-23 18:48:05,296 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-09-23 18:48:05,297 - ServerCommandAgent - INFO - ServerCommandAgent cell register_request_cb: server.simulate_job
+2024-09-23 18:48:07,854 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-09-23 18:48:07,854 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2024-09-23 18:48:10,330 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: Server runner starting ...
+2024-09-23 18:48:10,331 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job]: starting workflow gradient_aggregation_workflow (<class 'workflow.gradient_aggregation_workflow.GradientAggregationWorkflow'>) ...
+2024-09-23 18:48:10,332 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Workflow gradient_aggregation_workflow (<class 'workflow.gradient_aggregation_workflow.GradientAggregationWorkflow'>) started
+2024-09-23 18:48:10,333 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: scheduled task train_and_get_gradients
+2024-09-23 18:48:10,532 - SimulatorClientRunner - INFO - Start the clients run simulation.
+2024-09-23 18:48:11,534 - SimulatorClientRunner - INFO - Simulate Run client: site-1 on GPU group: None
+2024-09-23 18:48:11,535 - SimulatorClientRunner - INFO - Simulate Run client: site-2 on GPU group: None
+2024-09-23 18:48:12,664 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 127.0.0.1:34835 <= 127.0.0.1:41358] is created: PID: 26904
+2024-09-23 18:48:12,667 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 127.0.0.1:34835 <= 127.0.0.1:41364] is created: PID: 26904
+2024-09-23 18:48:20,576 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=a14d7a38-3eb2-4b89-87c0-86046d781a1f]: assigned task to client site-2: name=train_and_get_gradients, id=a14d7a38-3eb2-4b89-87c0-86046d781a1f
+2024-09-23 18:48:20,578 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=a14d7a38-3eb2-4b89-87c0-86046d781a1f]: sent task assignment to client. client_name:site-2 task_id:a14d7a38-3eb2-4b89-87c0-86046d781a1f
+2024-09-23 18:48:20,582 - GetTaskCommand - INFO - return task to client.  client_name: site-2  task_name: train_and_get_gradients   task_id: a14d7a38-3eb2-4b89-87c0-86046d781a1f  sharable_header_task_id: a14d7a38-3eb2-4b89-87c0-86046d781a1f
+2024-09-23 18:48:20,586 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: assigned task to client site-1: name=train_and_get_gradients, id=3fe7acff-edf4-4e81-af1c-5d12d8493faf
+2024-09-23 18:48:20,587 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: sent task assignment to client. client_name:site-1 task_id:3fe7acff-edf4-4e81-af1c-5d12d8493faf
+2024-09-23 18:48:20,588 - GetTaskCommand - INFO - return task to client.  client_name: site-1  task_name: train_and_get_gradients   task_id: 3fe7acff-edf4-4e81-af1c-5d12d8493faf  sharable_header_task_id: 3fe7acff-edf4-4e81-af1c-5d12d8493faf
+2024-09-23 18:49:11,058 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job]: got result from client site-1 for task: name=train_and_get_gradients, id=3fe7acff-edf4-4e81-af1c-5d12d8493faf
+2024-09-23 18:49:11,059 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, peer_rc=OK, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: finished processing client result by gradient_aggregation_workflow
+2024-09-23 18:49:11,059 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-1   task_id:3fe7acff-edf4-4e81-af1c-5d12d8493faf
+2024-09-23 18:49:23,404 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job]: got result from client site-2 for task: name=train_and_get_gradients, id=a14d7a38-3eb2-4b89-87c0-86046d781a1f
+2024-09-23 18:49:23,404 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=train_and_get_gradients, task_id=a14d7a38-3eb2-4b89-87c0-86046d781a1f]: finished processing client result by gradient_aggregation_workflow
+2024-09-23 18:49:23,404 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-2   task_id:a14d7a38-3eb2-4b89-87c0-86046d781a1f
+2024-09-23 18:49:23,427 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: task train_and_get_gradients exit with status TaskCompletionStatus.OK
+2024-09-23 18:49:23,912 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Start gradient aggregation.
+2024-09-23 18:49:23,918 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: End gradient aggregation.
+2024-09-23 18:49:23,919 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: scheduled task accept_aggregated_gradients
+2024-09-23 18:49:25,124 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: assigned task to client site-1: name=accept_aggregated_gradients, id=dc6491fb-5639-48d0-a26f-797faad15651
+2024-09-23 18:49:25,126 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: sent task assignment to client. client_name:site-1 task_id:dc6491fb-5639-48d0-a26f-797faad15651
+2024-09-23 18:49:25,127 - GetTaskCommand - INFO - return task to client.  client_name: site-1  task_name: accept_aggregated_gradients   task_id: dc6491fb-5639-48d0-a26f-797faad15651  sharable_header_task_id: dc6491fb-5639-48d0-a26f-797faad15651
+2024-09-23 18:49:25,206 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job]: got result from client site-1 for task: name=accept_aggregated_gradients, id=dc6491fb-5639-48d0-a26f-797faad15651
+2024-09-23 18:49:25,207 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job, peer_rc=OK, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: finished processing client result by gradient_aggregation_workflow
+2024-09-23 18:49:25,207 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-1   task_id:dc6491fb-5639-48d0-a26f-797faad15651
+2024-09-23 18:49:25,416 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=46eedbad-008f-42a7-843e-02231f116ae5]: assigned task to client site-2: name=accept_aggregated_gradients, id=46eedbad-008f-42a7-843e-02231f116ae5
+2024-09-23 18:49:25,418 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=46eedbad-008f-42a7-843e-02231f116ae5]: sent task assignment to client. client_name:site-2 task_id:46eedbad-008f-42a7-843e-02231f116ae5
+2024-09-23 18:49:25,419 - GetTaskCommand - INFO - return task to client.  client_name: site-2  task_name: accept_aggregated_gradients   task_id: 46eedbad-008f-42a7-843e-02231f116ae5  sharable_header_task_id: 46eedbad-008f-42a7-843e-02231f116ae5
+2024-09-23 18:49:25,486 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job]: got result from client site-2 for task: name=accept_aggregated_gradients, id=46eedbad-008f-42a7-843e-02231f116ae5
+2024-09-23 18:49:25,486 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job, peer_rc=OK, task_name=accept_aggregated_gradients, task_id=46eedbad-008f-42a7-843e-02231f116ae5]: finished processing client result by gradient_aggregation_workflow
+2024-09-23 18:49:25,487 - SubmitUpdateCommand - INFO - submit_update process. client_name:site-2   task_id:46eedbad-008f-42a7-843e-02231f116ae5
+2024-09-23 18:49:25,932 - GradientAggregationWorkflow - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: task accept_aggregated_gradients exit with status TaskCompletionStatus.OK
+2024-09-23 18:49:26,428 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Workflow: gradient_aggregation_workflow finalizing ...
+2024-09-23 18:49:26,435 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: ABOUT_TO_END_RUN fired
+2024-09-23 18:49:26,436 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Firing CHECK_END_RUN_READINESS ...
+2024-09-23 18:49:26,437 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: END_RUN fired
+2024-09-23 18:49:26,437 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: Server runner finished.
+2024-09-23 18:49:27,218 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-1, peer_run=simulate_job]: server runner is finalizing - asked client to end the run
+2024-09-23 18:49:27,219 - GetTaskCommand - INFO - return task to client.  client_name: site-1  task_name: __end_run__   task_id:   sharable_header_task_id: 
+2024-09-23 18:49:27,276 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00005 Not Connected] is closed PID: 26904
+2024-09-23 18:49:27,496 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow, peer=site-2, peer_run=simulate_job]: server runner is finalizing - asked client to end the run
+2024-09-23 18:49:27,497 - GetTaskCommand - INFO - return task to client.  client_name: site-2  task_name: __end_run__   task_id:   sharable_header_task_id: 
+2024-09-23 18:49:27,553 - FederatedClient - INFO - Shutting down client run: site-1
+2024-09-23 18:49:27,555 - FederatedClient - INFO - Shutting down client run: site-2
+2024-09-23 18:49:27,557 - ServerRunner - INFO - [identity=simulator_server, run=simulate_job, wf=gradient_aggregation_workflow]: asked to abort - triggered abort_signal to stop the RUN
+2024-09-23 18:49:27,561 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00006 Not Connected] is closed PID: 26904
+2024-09-23 18:49:28,397 - SimulatorServer - INFO - Server app stopped.
 
 
-2024-09-23 17:16:11,469 - nvflare.fuel.hci.server.hci - INFO - Admin Server localhost on Port 60195 shutdown!
-2024-09-23 17:16:11,469 - SimulatorServer - INFO - shutting down server
-2024-09-23 17:16:11,469 - SimulatorServer - INFO - canceling sync locks
-2024-09-23 17:16:11,469 - SimulatorServer - INFO - server off
-2024-09-23 17:16:14,976 - MPM - INFO - MPM: Good Bye!
+2024-09-23 18:49:28,642 - nvflare.fuel.hci.server.hci - INFO - Admin Server localhost on Port 56621 shutdown!
+2024-09-23 18:49:28,643 - SimulatorServer - INFO - shutting down server
+2024-09-23 18:49:28,643 - SimulatorServer - INFO - canceling sync locks
+2024-09-23 18:49:28,644 - SimulatorServer - INFO - server off
+2024-09-23 18:49:32,153 - MPM - INFO - MPM: Good Bye!

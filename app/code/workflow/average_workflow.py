@@ -9,7 +9,7 @@ class AverageWorkflow(Controller):
         self,
         aggregator_id="aggregator",
         min_clients: int = 2,
-        num_rounds: int = 2,
+        num_rounds: int = 3, # Set the total number of rounds to 3 (corresponding to 3 epochs)
         start_round: int = 0,
         wait_time_after_min_received: int = 10,
         train_timeout: int = 0,
@@ -80,6 +80,70 @@ class AverageWorkflow(Controller):
             abort_signal=abort_signal,
         )      
         
+    def control_flow_old(self, abort_signal: Signal, fl_ctx: FLContext) -> None:
+        # Initialize the current round
+        current_round = self._start_round
+        fl_ctx.set_prop(key="CURRENT_ROUND", value=current_round)
+
+        # Loop over the number of rounds (epochs)
+        while current_round < self._num_rounds:
+            self.log_info(fl_ctx, f"Starting round {current_round + 1}/{self._num_rounds}")
+
+            # Train local models and get gradients from each client
+            get_local_average_task = Task(
+                name="get_local_average_and_count",
+                data=Shareable(),
+                props={},
+                timeout=self._train_timeout,
+                # before_task_sent_cb=self._prepare_train_task_data,
+                result_received_cb=self._accept_site_result,
+            )
+
+            self.broadcast_and_wait(
+                task=get_local_average_task,
+                min_responses=self._min_clients,
+                wait_time_after_min_received=self._wait_time_after_min_received,
+                fl_ctx=fl_ctx,
+                abort_signal=abort_signal,
+            )
+
+            self.log_info(fl_ctx, "Start aggregation.")
+            aggr_shareable = self.aggregator.aggregate(fl_ctx)
+            self.log_info(fl_ctx, "End aggregation.")
+        
+            result = {"global_average": aggr_shareable.get("global_average", {})}
+            print(f"\n\n{'='*50}\nAggregated result after round {current_round + 1}: {result}\n{'='*50}\n\n")
+
+            # Send the aggregated global average to each client
+            accept_global_average_task = Task(
+                name="accept_global_average",
+                data=aggr_shareable,
+                props={},
+                timeout=self._train_timeout,
+            )
+
+            self.broadcast_and_wait(
+                task=accept_global_average_task,
+                min_responses=self._min_clients,
+                wait_time_after_min_received=self._wait_time_after_min_received,
+                fl_ctx=fl_ctx,
+                abort_signal=abort_signal,
+            )
+
+            # Increment the round (epoch)
+            current_round += 1
+            fl_ctx.set_prop(key="CURRENT_ROUND", value=current_round)
+
+            # Optionally, persist or snapshot after each round
+            if current_round % self._persist_every_n_rounds == 0:
+                self.log_info(fl_ctx, f"Persisting model at round {current_round}")
+
+            if current_round % self._snapshot_every_n_rounds == 0:
+                self.log_info(fl_ctx, f"Taking snapshot of the model at round {current_round}")
+
+        self.log_info(fl_ctx, "Training and aggregation complete.")
+
+
 
     def _accept_site_result(self, client_task: ClientTask, fl_ctx: FLContext) -> bool:
         accepted = self.aggregator.accept(client_task.result, fl_ctx)

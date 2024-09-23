@@ -63,7 +63,7 @@ class MeshNetExecutor(Executor):
             self.apply_gradients(aggregated_gradients)
             return Shareable()
 
-    def train_and_get_gradients(self):
+    def train_and_get_gradients_old(self):
         self.model.train()
         image, label = self.get_next_train_batch()
         image, label = image.to(self.device), label.to(self.device)
@@ -100,6 +100,57 @@ class MeshNetExecutor(Executor):
         torch.cuda.empty_cache()
 
         return gradients
+
+    def train_and_get_gradients(self):
+        self.model.train()
+        
+        # Initialize accumulators for the loss and gradients
+        total_loss = 0.0
+        gradient_accumulator = [torch.zeros_like(param).to(self.device) for param in self.model.parameters()]
+        
+        # Training loop for one epoch (full pass through the dataset)
+        for batch_id, (image, label) in enumerate(self.trainloader):
+            image, label = image.to(self.device), label.to(self.device)
+            self.optimizer.zero_grad()
+
+            # Mixed precision and checkpointing
+            with amp.autocast():
+                output = self.model(image)
+                label = label.squeeze(1)
+                loss = self.criterion(output, label.long())
+            
+            # Accumulate loss
+            total_loss += loss.item()
+
+            # Scale the loss and backward pass
+            self.scaler.scale(loss).backward()
+
+            # Accumulate gradients
+            for i, param in enumerate(self.model.parameters()):
+                if param.grad is not None:
+                    gradient_accumulator[i] += param.grad.clone()
+
+            # Update optimizer
+            self.scaler.step(self.optimizer)
+            self.scaler.update()
+
+            # Clear GPU cache
+            torch.cuda.empty_cache()
+        
+        # Log the average loss per epoch
+        average_loss = total_loss / len(self.trainloader)
+        self.logger.log_message(f"Epoch {self.current_iteration}: Loss = {average_loss}")
+        
+        # Extract accumulated gradients
+        gradients = [grad.clone().cpu().numpy() for grad in gradient_accumulator if grad is not None]
+        
+        # Increment the iteration count
+        self.current_iteration += 1
+
+        return gradients
+
+
+
 
     def get_next_train_batch(self):
         # Get the next batch of data from the trainloader
