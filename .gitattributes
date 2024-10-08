@@ -2,3 +2,5 @@ test_data/site1/mindboggle.db filter=lfs diff=lfs merge=lfs -text
 test_data/site2/mindboggle.db filter=lfs diff=lfs merge=lfs -text
 app/code/executor/mindboggle.db filter=lfs diff=lfs merge=lfs -text
 *.db filter=lfs diff=lfs merge=lfs -text
+test_data/site-1/mindboggle.db filter=lfs diff=lfs merge=lfs -text
+test_data/site-2/mindboggle.db filter=lfs diff=lfs merge=lfs -text
