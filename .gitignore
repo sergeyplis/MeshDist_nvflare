@@ -1,1 +1,4 @@
 nvflare_env/
+test_data/site-1/mindboggle.db
+test_data/site-2/mindboggle.db
+
