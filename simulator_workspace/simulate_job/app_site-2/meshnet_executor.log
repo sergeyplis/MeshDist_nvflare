@@ -1,2 +1,24 @@
-2024-09-23 18:49:23,376 - INFO - Epoch 0: Loss = 1.1302154421806336
-2024-09-23 18:49:25,480 - INFO - Aggregated gradients applied to the model.
+2024-10-08 01:24:59,790 - INFO - ******************site-2**********train_and_get_gradients called 
+2024-10-08 01:26:13,713 - INFO - site-2 - Epoch 0: Loss = 1.2033181071281434, Dice = 0.30952016413211825
+2024-10-08 01:26:13,714 - INFO - site-2 Performing aggregation after epoch 0
+2024-10-08 01:26:15,975 - INFO - ******************site-2**********accept_aggregated_gradients called 
+2024-10-08 01:26:16,015 - INFO - site-2 Aggregated gradients applied to the model.
+2024-10-08 01:26:16,024 - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-2/model_epoch_0.pth
+2024-10-08 01:26:18,168 - INFO - ******************site-2**********train_and_get_gradients called 
+2024-10-08 01:27:33,543 - INFO - site-2 - Epoch 1: Loss = 1.1036055445671082, Dice = 0.3119135767221451
+2024-10-08 01:27:33,543 - INFO - site-2 Performing aggregation after epoch 1
+2024-10-08 01:27:35,737 - INFO - ******************site-2**********accept_aggregated_gradients called 
+2024-10-08 01:27:35,774 - INFO - site-2 Aggregated gradients applied to the model.
+2024-10-08 01:27:35,782 - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-2/model_epoch_1.pth
+2024-10-08 01:27:37,937 - INFO - ******************site-2**********train_and_get_gradients called 
+2024-10-08 01:28:51,362 - INFO - site-2 - Epoch 2: Loss = 1.0972798466682434, Dice = 0.2182610437273979
+2024-10-08 01:28:51,362 - INFO - site-2 Performing aggregation after epoch 2
+2024-10-08 01:28:53,605 - INFO - ******************site-2**********accept_aggregated_gradients called 
+2024-10-08 01:28:53,641 - INFO - site-2 Aggregated gradients applied to the model.
+2024-10-08 01:28:53,649 - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-2/model_epoch_2.pth
+2024-10-08 01:28:55,791 - INFO - ******************site-2**********train_and_get_gradients called 
+2024-10-08 01:30:07,861 - INFO - site-2 - Epoch 3: Loss = 1.069741415977478, Dice = 0.3072408676147461
+2024-10-08 01:30:07,862 - INFO - site-2 Performing aggregation after epoch 3
+2024-10-08 01:30:10,107 - INFO - ******************site-2**********accept_aggregated_gradients called 
+2024-10-08 01:30:10,143 - INFO - site-2 Aggregated gradients applied to the model.
+2024-10-08 01:30:10,151 - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-2/model_epoch_3.pth

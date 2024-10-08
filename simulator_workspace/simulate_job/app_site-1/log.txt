@@ -1,48 +1,148 @@
-2024-09-23 18:48:12,574 - ClientTaskWorker - INFO - ClientTaskWorker started to run
-2024-09-23 18:48:12,662 - CoreCell - INFO - site-1.simulate_job: created backbone external connector to tcp://localhost:34835
-2024-09-23 18:48:12,662 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:34835] is starting
-2024-09-23 18:48:12,663 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:41358 => 127.0.0.1:34835] is created: PID: 26933
-2024-09-23 18:48:14,764 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
-2024-09-23 18:48:14,764 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
-2024-09-23 18:48:20,024 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
-2024-09-23 18:48:20,563 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
-2024-09-23 18:48:20,573 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: synced to Server Runner in 0.5107650756835938 seconds
-2024-09-23 18:48:20,574 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: client runner started
-2024-09-23 18:48:20,574 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-1
-2024-09-23 18:48:20,591 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.016545 seconds
-2024-09-23 18:48:20,592 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
-2024-09-23 18:48:20,592 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=3fe7acff-edf4-4e81-af1c-5d12d8493faf
-2024-09-23 18:48:20,593 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: invoking task executor MeshNetExecutor
-2024-09-23 18:49:10,928 - executor.dist - INFO - Epoch 0: Loss = 0.9475304543972015
-2024-09-23 18:49:11,031 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: finished processing task
-2024-09-23 18:49:11,032 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: try #1: sending task result to server
-2024-09-23 18:49:11,032 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: checking task ...
-2024-09-23 18:49:11,032 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-23 18:49:11,036 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: start to send task result to server
-2024-09-23 18:49:11,037 - FederatedClient - INFO - Starting to push execute result.
-2024-09-23 18:49:11,060 - Communicator - INFO -  SubmitUpdate size: 8.2KB (8240 Bytes). time: 0.023433 seconds
-2024-09-23 18:49:11,060 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=3fe7acff-edf4-4e81-af1c-5d12d8493faf]: task result sent to server
-2024-09-23 18:49:11,060 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
-2024-09-23 18:49:25,181 - Communicator - INFO - Received from simulator_server server. getTask: accept_aggregated_gradients size: 8.2KB (8228 Bytes) time: 0.063657 seconds
-2024-09-23 18:49:25,182 - FederatedClient - INFO - pull_task completed. Task name:accept_aggregated_gradients Status:True 
-2024-09-23 18:49:25,182 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=accept_aggregated_gradients, id=dc6491fb-5639-48d0-a26f-797faad15651
-2024-09-23 18:49:25,183 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: invoking task executor MeshNetExecutor
-2024-09-23 18:49:25,200 - executor.dist - INFO - Aggregated gradients applied to the model.
-2024-09-23 18:49:25,201 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: finished processing task
-2024-09-23 18:49:25,201 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: try #1: sending task result to server
-2024-09-23 18:49:25,201 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: checking task ...
-2024-09-23 18:49:25,201 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
-2024-09-23 18:49:25,205 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: start to send task result to server
-2024-09-23 18:49:25,205 - FederatedClient - INFO - Starting to push execute result.
-2024-09-23 18:49:25,208 - Communicator - INFO -  SubmitUpdate size: 553B (553 Bytes). time: 0.002890 seconds
-2024-09-23 18:49:25,208 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=dc6491fb-5639-48d0-a26f-797faad15651]: task result sent to server
-2024-09-23 18:49:25,208 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
-2024-09-23 18:49:27,224 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
-2024-09-23 18:49:27,225 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
-2024-09-23 18:49:27,226 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: started end-run events sequence
-2024-09-23 18:49:27,227 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: ABOUT_TO_END_RUN fired
-2024-09-23 18:49:27,228 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
-2024-09-23 18:49:27,229 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: END_RUN fired
-2024-09-23 18:49:27,229 - ClientTaskWorker - INFO - End the Simulator run.
-2024-09-23 18:49:27,273 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-1 
-2024-09-23 18:49:27,277 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 26933
+2024-10-08 01:24:54,054 - ClientTaskWorker - INFO - ClientTaskWorker started to run
+2024-10-08 01:24:54,116 - CoreCell - INFO - site-1.simulate_job: created backbone external connector to tcp://localhost:35073
+2024-10-08 01:24:54,116 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connector [CH00001 ACTIVE tcp://localhost:35073] is starting
+2024-10-08 01:24:54,117 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 127.0.0.1:56690 => 127.0.0.1:35073] is created: PID: 14724
+2024-10-08 01:24:56,061 - numexpr.utils - INFO - Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-10-08 01:24:56,061 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2024-10-08 01:24:59,104 - Cell - INFO - Register blob CB for channel='aux_communication', topic='*'
+2024-10-08 01:24:59,609 - Cell - INFO - broadcast: channel='aux_communication', topic='__sync_runner__', targets=['server.simulate_job'], timeout=2.0
+2024-10-08 01:24:59,623 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: synced to Server Runner in 0.5150823593139648 seconds
+2024-10-08 01:24:59,624 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: client runner started
+2024-10-08 01:24:59,624 - ClientTaskWorker - INFO - Initialize ClientRunner for client: site-1
+2024-10-08 01:24:59,630 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.006207 seconds
+2024-10-08 01:24:59,631 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-10-08 01:24:59,631 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=393f5666-a050-4d48-bc7c-49875f504d86
+2024-10-08 01:24:59,631 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=393f5666-a050-4d48-bc7c-49875f504d86]: invoking task executor MeshNetExecutor
+2024-10-08 01:24:59,792 - executor.dist - INFO - ******************site-1**********train_and_get_gradients called 
+2024-10-08 01:26:13,695 - executor.dist - INFO - site-1 - Epoch 0: Loss = 1.0457981050014495, Dice = 0.27788073420524595
+2024-10-08 01:26:13,695 - executor.dist - INFO - site-1 Performing aggregation after epoch 0
+2024-10-08 01:26:13,715 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=393f5666-a050-4d48-bc7c-49875f504d86]: finished processing task
+2024-10-08 01:26:13,715 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=393f5666-a050-4d48-bc7c-49875f504d86]: try #1: sending task result to server
+2024-10-08 01:26:13,715 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=393f5666-a050-4d48-bc7c-49875f504d86]: checking task ...
+2024-10-08 01:26:13,716 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:26:13,721 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=393f5666-a050-4d48-bc7c-49875f504d86]: start to send task result to server
+2024-10-08 01:26:13,721 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:26:13,738 - Communicator - INFO -  SubmitUpdate size: 8.2KB (8240 Bytes). time: 0.016947 seconds
+2024-10-08 01:26:13,738 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=393f5666-a050-4d48-bc7c-49875f504d86]: task result sent to server
+2024-10-08 01:26:13,738 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:26:15,818 - Communicator - INFO - Received from simulator_server server. getTask: accept_aggregated_gradients size: 8.2KB (8228 Bytes) time: 0.067162 seconds
+2024-10-08 01:26:15,819 - FederatedClient - INFO - pull_task completed. Task name:accept_aggregated_gradients Status:True 
+2024-10-08 01:26:15,819 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=accept_aggregated_gradients, id=f7bc958b-5d0b-450b-9885-982713879b62
+2024-10-08 01:26:15,820 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=f7bc958b-5d0b-450b-9885-982713879b62]: invoking task executor MeshNetExecutor
+2024-10-08 01:26:15,970 - executor.dist - INFO - ******************site-1**********accept_aggregated_gradients called 
+2024-10-08 01:26:16,006 - executor.dist - INFO - site-1 Aggregated gradients applied to the model.
+2024-10-08 01:26:16,014 - executor.dist - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-1/model_epoch_0.pth
+2024-10-08 01:26:16,015 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=f7bc958b-5d0b-450b-9885-982713879b62]: finished processing task
+2024-10-08 01:26:16,015 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=f7bc958b-5d0b-450b-9885-982713879b62]: try #1: sending task result to server
+2024-10-08 01:26:16,015 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=f7bc958b-5d0b-450b-9885-982713879b62]: checking task ...
+2024-10-08 01:26:16,015 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:26:16,019 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=f7bc958b-5d0b-450b-9885-982713879b62]: start to send task result to server
+2024-10-08 01:26:16,019 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:26:16,022 - Communicator - INFO -  SubmitUpdate size: 553B (553 Bytes). time: 0.003170 seconds
+2024-10-08 01:26:16,022 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=f7bc958b-5d0b-450b-9885-982713879b62]: task result sent to server
+2024-10-08 01:26:16,023 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:26:18,035 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.009125 seconds
+2024-10-08 01:26:18,035 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-10-08 01:26:18,035 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=0774aed9-1548-4a9c-97e6-c09ed00d381b
+2024-10-08 01:26:18,036 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=0774aed9-1548-4a9c-97e6-c09ed00d381b]: invoking task executor MeshNetExecutor
+2024-10-08 01:26:18,165 - executor.dist - INFO - ******************site-1**********train_and_get_gradients called 
+2024-10-08 01:27:33,527 - executor.dist - INFO - site-1 - Epoch 1: Loss = 0.9652446031570434, Dice = 0.28701377511024473
+2024-10-08 01:27:33,527 - executor.dist - INFO - site-1 Performing aggregation after epoch 1
+2024-10-08 01:27:33,547 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=0774aed9-1548-4a9c-97e6-c09ed00d381b]: finished processing task
+2024-10-08 01:27:33,548 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=0774aed9-1548-4a9c-97e6-c09ed00d381b]: try #1: sending task result to server
+2024-10-08 01:27:33,548 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=0774aed9-1548-4a9c-97e6-c09ed00d381b]: checking task ...
+2024-10-08 01:27:33,548 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:27:33,552 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=0774aed9-1548-4a9c-97e6-c09ed00d381b]: start to send task result to server
+2024-10-08 01:27:33,552 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:27:33,579 - Communicator - INFO -  SubmitUpdate size: 8.2KB (8240 Bytes). time: 0.026432 seconds
+2024-10-08 01:27:33,579 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=0774aed9-1548-4a9c-97e6-c09ed00d381b]: task result sent to server
+2024-10-08 01:27:33,579 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:27:35,613 - Communicator - INFO - Received from simulator_server server. getTask: accept_aggregated_gradients size: 8.2KB (8228 Bytes) time: 0.029950 seconds
+2024-10-08 01:27:35,613 - FederatedClient - INFO - pull_task completed. Task name:accept_aggregated_gradients Status:True 
+2024-10-08 01:27:35,613 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=accept_aggregated_gradients, id=effe28f5-e53d-452a-8960-c17edd9fcbb6
+2024-10-08 01:27:35,614 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=effe28f5-e53d-452a-8960-c17edd9fcbb6]: invoking task executor MeshNetExecutor
+2024-10-08 01:27:35,735 - executor.dist - INFO - ******************site-1**********accept_aggregated_gradients called 
+2024-10-08 01:27:35,772 - executor.dist - INFO - site-1 Aggregated gradients applied to the model.
+2024-10-08 01:27:35,779 - executor.dist - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-1/model_epoch_1.pth
+2024-10-08 01:27:35,780 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=effe28f5-e53d-452a-8960-c17edd9fcbb6]: finished processing task
+2024-10-08 01:27:35,780 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=effe28f5-e53d-452a-8960-c17edd9fcbb6]: try #1: sending task result to server
+2024-10-08 01:27:35,780 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=effe28f5-e53d-452a-8960-c17edd9fcbb6]: checking task ...
+2024-10-08 01:27:35,781 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:27:35,785 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=effe28f5-e53d-452a-8960-c17edd9fcbb6]: start to send task result to server
+2024-10-08 01:27:35,785 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:27:35,789 - Communicator - INFO -  SubmitUpdate size: 553B (553 Bytes). time: 0.004426 seconds
+2024-10-08 01:27:35,789 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=effe28f5-e53d-452a-8960-c17edd9fcbb6]: task result sent to server
+2024-10-08 01:27:35,790 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:27:37,808 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.014018 seconds
+2024-10-08 01:27:37,808 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-10-08 01:27:37,808 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=d1126db2-7b01-4338-a711-02c13971dd88
+2024-10-08 01:27:37,809 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=d1126db2-7b01-4338-a711-02c13971dd88]: invoking task executor MeshNetExecutor
+2024-10-08 01:27:37,935 - executor.dist - INFO - ******************site-1**********train_and_get_gradients called 
+2024-10-08 01:28:51,525 - executor.dist - INFO - site-1 - Epoch 2: Loss = 0.951524305343628, Dice = 0.2856555789709091
+2024-10-08 01:28:51,525 - executor.dist - INFO - site-1 Performing aggregation after epoch 2
+2024-10-08 01:28:51,527 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=d1126db2-7b01-4338-a711-02c13971dd88]: finished processing task
+2024-10-08 01:28:51,527 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=d1126db2-7b01-4338-a711-02c13971dd88]: try #1: sending task result to server
+2024-10-08 01:28:51,527 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=d1126db2-7b01-4338-a711-02c13971dd88]: checking task ...
+2024-10-08 01:28:51,527 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:28:51,530 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=d1126db2-7b01-4338-a711-02c13971dd88]: start to send task result to server
+2024-10-08 01:28:51,530 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:28:51,544 - Communicator - INFO -  SubmitUpdate size: 8.2KB (8240 Bytes). time: 0.013791 seconds
+2024-10-08 01:28:51,544 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=d1126db2-7b01-4338-a711-02c13971dd88]: task result sent to server
+2024-10-08 01:28:51,544 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:28:53,563 - Communicator - INFO - Received from simulator_server server. getTask: accept_aggregated_gradients size: 8.2KB (8228 Bytes) time: 0.016060 seconds
+2024-10-08 01:28:53,564 - FederatedClient - INFO - pull_task completed. Task name:accept_aggregated_gradients Status:True 
+2024-10-08 01:28:53,564 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=accept_aggregated_gradients, id=02ab735e-51ab-4476-b362-dd01e1a58536
+2024-10-08 01:28:53,565 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=02ab735e-51ab-4476-b362-dd01e1a58536]: invoking task executor MeshNetExecutor
+2024-10-08 01:28:53,672 - executor.dist - INFO - ******************site-1**********accept_aggregated_gradients called 
+2024-10-08 01:28:53,709 - executor.dist - INFO - site-1 Aggregated gradients applied to the model.
+2024-10-08 01:28:53,716 - executor.dist - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-1/model_epoch_2.pth
+2024-10-08 01:28:53,717 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=02ab735e-51ab-4476-b362-dd01e1a58536]: finished processing task
+2024-10-08 01:28:53,717 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=02ab735e-51ab-4476-b362-dd01e1a58536]: try #1: sending task result to server
+2024-10-08 01:28:53,717 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=02ab735e-51ab-4476-b362-dd01e1a58536]: checking task ...
+2024-10-08 01:28:53,717 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:28:53,720 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=02ab735e-51ab-4476-b362-dd01e1a58536]: start to send task result to server
+2024-10-08 01:28:53,720 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:28:53,723 - Communicator - INFO -  SubmitUpdate size: 553B (553 Bytes). time: 0.002876 seconds
+2024-10-08 01:28:53,723 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=02ab735e-51ab-4476-b362-dd01e1a58536]: task result sent to server
+2024-10-08 01:28:53,723 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:28:55,731 - Communicator - INFO - Received from simulator_server server. getTask: train_and_get_gradients size: 518B (518 Bytes) time: 0.004749 seconds
+2024-10-08 01:28:55,731 - FederatedClient - INFO - pull_task completed. Task name:train_and_get_gradients Status:True 
+2024-10-08 01:28:55,731 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=train_and_get_gradients, id=98c0de18-767f-4995-9d38-5ea9e3633514
+2024-10-08 01:28:55,732 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=98c0de18-767f-4995-9d38-5ea9e3633514]: invoking task executor MeshNetExecutor
+2024-10-08 01:28:55,846 - executor.dist - INFO - ******************site-1**********train_and_get_gradients called 
+2024-10-08 01:30:08,042 - executor.dist - INFO - site-1 - Epoch 3: Loss = 0.9402837991714478, Dice = 0.29093351364135744
+2024-10-08 01:30:08,042 - executor.dist - INFO - site-1 Performing aggregation after epoch 3
+2024-10-08 01:30:08,044 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=98c0de18-767f-4995-9d38-5ea9e3633514]: finished processing task
+2024-10-08 01:30:08,044 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=98c0de18-767f-4995-9d38-5ea9e3633514]: try #1: sending task result to server
+2024-10-08 01:30:08,044 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=98c0de18-767f-4995-9d38-5ea9e3633514]: checking task ...
+2024-10-08 01:30:08,045 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:30:08,047 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=98c0de18-767f-4995-9d38-5ea9e3633514]: start to send task result to server
+2024-10-08 01:30:08,048 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:30:08,062 - Communicator - INFO -  SubmitUpdate size: 8.2KB (8240 Bytes). time: 0.014277 seconds
+2024-10-08 01:30:08,062 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=train_and_get_gradients, task_id=98c0de18-767f-4995-9d38-5ea9e3633514]: task result sent to server
+2024-10-08 01:30:08,062 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:30:10,082 - Communicator - INFO - Received from simulator_server server. getTask: accept_aggregated_gradients size: 8.2KB (8228 Bytes) time: 0.017565 seconds
+2024-10-08 01:30:10,083 - FederatedClient - INFO - pull_task completed. Task name:accept_aggregated_gradients Status:True 
+2024-10-08 01:30:10,083 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: got task assignment: name=accept_aggregated_gradients, id=5679f5bf-8b59-4bcd-86ca-c21dfaafa653
+2024-10-08 01:30:10,083 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=5679f5bf-8b59-4bcd-86ca-c21dfaafa653]: invoking task executor MeshNetExecutor
+2024-10-08 01:30:10,186 - executor.dist - INFO - ******************site-1**********accept_aggregated_gradients called 
+2024-10-08 01:30:10,220 - executor.dist - INFO - site-1 Aggregated gradients applied to the model.
+2024-10-08 01:30:10,227 - executor.dist - INFO - Model saved at /media/mohamed/3563bb56-889a-4bad-a486-da7f2f0b6a03/MyGithub/Coinstac_all/MeshDist_nvflare/test_output/simulate_job/site-1/model_epoch_3.pth
+2024-10-08 01:30:10,227 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=5679f5bf-8b59-4bcd-86ca-c21dfaafa653]: finished processing task
+2024-10-08 01:30:10,228 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=5679f5bf-8b59-4bcd-86ca-c21dfaafa653]: try #1: sending task result to server
+2024-10-08 01:30:10,228 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=5679f5bf-8b59-4bcd-86ca-c21dfaafa653]: checking task ...
+2024-10-08 01:30:10,228 - Cell - INFO - broadcast: channel='aux_communication', topic='__task_check__', targets=['server.simulate_job'], timeout=5.0
+2024-10-08 01:30:10,231 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=5679f5bf-8b59-4bcd-86ca-c21dfaafa653]: start to send task result to server
+2024-10-08 01:30:10,231 - FederatedClient - INFO - Starting to push execute result.
+2024-10-08 01:30:10,234 - Communicator - INFO -  SubmitUpdate size: 553B (553 Bytes). time: 0.002795 seconds
+2024-10-08 01:30:10,234 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job, task_name=accept_aggregated_gradients, task_id=5679f5bf-8b59-4bcd-86ca-c21dfaafa653]: task result sent to server
+2024-10-08 01:30:10,234 - ClientTaskWorker - INFO - Finished one task run for client: site-1 interval: 2 task_processed: True
+2024-10-08 01:30:12,242 - FederatedClient - INFO - pull_task completed. Task name:__end_run__ Status:True 
+2024-10-08 01:30:12,242 - ClientRunner - INFO - [identity=site-1, run=simulate_job, peer=simulator_server, peer_run=simulate_job]: server asked to end the run
+2024-10-08 01:30:12,242 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: started end-run events sequence
+2024-10-08 01:30:12,243 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: ABOUT_TO_END_RUN fired
+2024-10-08 01:30:12,243 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: Firing CHECK_END_RUN_READINESS ...
+2024-10-08 01:30:12,243 - ClientRunner - INFO - [identity=site-1, run=simulate_job]: END_RUN fired
+2024-10-08 01:30:12,244 - ClientTaskWorker - INFO - End the Simulator run.
+2024-10-08 01:30:12,287 - ClientTaskWorker - INFO - Clean up ClientRunner for : site-1 
+2024-10-08 01:30:12,292 - nvflare.fuel.f3.sfm.conn_manager - INFO - Connection [CN00002 Not Connected] is closed PID: 14724
