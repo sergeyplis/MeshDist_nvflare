@@ -23,7 +23,8 @@ class MeshNetExecutor(Executor):
         super().__init__()
         # Model Initialization
         config_file_path = os.path.join(os.path.dirname(__file__), "modelAE.json")
-
+        
+        # TODO Make sure the initial random model weights are the same across sites!
         self.model = enMesh_checkpoint(in_channels=1, n_classes=3, channels=5, config_file=config_file_path)
 
         # Check if GPU available
@@ -35,11 +36,11 @@ class MeshNetExecutor(Executor):
             param.requires_grad = True
 
         # Optimizer and criterion setup
-        self.optimizer = torch.optim.RMSprop(self.model.parameters(), lr=0.001)
+        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         self.criterion = torch.nn.CrossEntropyLoss()
 
         # AMP for mixed precision to overcome memory limitations
-        self.scaler = torch.amp.GradScaler()  # No need to specify 'cuda', it's inferred automatically
+        # self.scaler = torch.amp.GradScaler()  # No need to specify 'cuda', it's inferred automatically
 
         # Logger can be found for example with: MeshDist_nvflare/simulator_workspace/simulate_job/app_site-1 and app_site-2
         self.logger = GenericLogger(log_file_path='meshnet_executor.log')
@@ -200,7 +201,6 @@ class MeshNetExecutor(Executor):
 
         # Initialize accumulators for the loss and gradients
         total_loss = 0.0
-        gradient_accumulator = [torch.zeros_like(param).to(self.device) for param in self.model.parameters()]
 
         # Training loop for one epoch (full pass through the dataset)
         for batch_id, (image, label) in enumerate(self.trainloader):
@@ -217,30 +217,21 @@ class MeshNetExecutor(Executor):
             total_loss += loss.item()
 
             # Scale loss and backward pass
-            self.scaler.scale(loss).backward()
-
-            # Accumulate gradients
-            for i, param in enumerate(self.model.parameters()):
-                if param.grad is not None:
-                    gradient_accumulator[i] += param.grad.clone()
-
-            # Update optimizer
-            self.scaler.step(self.optimizer)
-            self.scaler.update()
-
-            # Clear GPU cache
-            torch.cuda.empty_cache()
-
+            loss.backward()
+            self.optimizer.step()
+            
         # Log the average loss and Dice score per epoch
         average_loss = total_loss / len(self.trainloader)
         dice_score = self.calculate_dice(self.trainloader)
         self.logger.log_message(f"{self.site_name} - Epoch {self.current_epoch}: Loss = {average_loss}, Dice = {dice_score}")
 
-
         # Return the gradients after completing the specified aggregation interval
-        self.logger.log_message(f"{self.site_name} Performing aggregation after epoch {self.current_epoch}")
-        gradients =  [grad.clone().cpu().numpy() for grad in gradient_accumulator if grad is not None]
-
+        self.logger.log_message(f"{self.site_name} Preparing payload after an iteration in epoch {self.current_epoch}")
+        # Accumulate gradients
+        gradients = []
+        for i, param in enumerate(self.model.parameters()):
+            if param.grad is not None:
+                gradient_accumulator.append(param.grad.clone().cpu().numpy())
         
         # # Increment the iteration count
         #-- self.current_epoch += 1
@@ -260,13 +251,13 @@ class MeshNetExecutor(Executor):
 
     def apply_gradients(self, aggregated_gradients, fl_ctx):
         # Apply aggregated gradients to the model parameters
-        with torch.no_grad():
-            for param, grad in zip(self.model.parameters(), aggregated_gradients):
-                param.grad = torch.tensor(grad).to(self.device)
-            self.optimizer.step()
+        self.optimizer.zero_grad()
+        for param, grad in zip(self.model.parameters(), aggregated_gradients):
+            param.grad = torch.tensor(grad).to(self.device)
+        self.optimizer.step()
 
         # Clear GPU memory cache after applying gradients
-        torch.cuda.empty_cache()
+        # torch.cuda.empty_cache()
 
         # Log the gradient application step
         self.logger.log_message(f"{self.site_name} Aggregated gradients applied to the model.")
